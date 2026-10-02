@@ -1,0 +1,1446 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b0f14"><title>MABFLEX Inventário</title>
+<style>
+:root{--bg:#090d12;--panel:#111821;--panel2:#18222e;--line:#273341;--text:#f5f7fa;--muted:#91a0b2;--red:#e31b23;--red2:#b90f16;--green:#28c982;--yellow:#f3bd4b;--radius:16px}*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#080b10,#111823 58%,#090d12);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:1200px;margin:auto;padding:16px 14px 44px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}.brand{font-weight:900;letter-spacing:.04em;font-size:20px}.brand span{color:#ff343b}.sub{font-size:11px;color:var(--muted);margin-top:2px}.top-actions{display:flex;gap:7px}.icon{border:1px solid var(--line);background:var(--panel);color:#fff;border-radius:11px;width:40px;height:40px}.view{display:none}.view.active{display:block}.hero{display:flex;justify-content:space-between;gap:18px;align-items:end;margin:5px 0 20px}.eyebrow{font-size:10px;letter-spacing:.15em;font-weight:900;color:#f02a32;margin:0 0 5px}.hero h1,.section-head h2{margin:0;font-size:clamp(25px,5vw,36px);line-height:1.05}.muted{color:var(--muted);margin:8px 0 0;font-size:13px}.live{border:1px solid #1e5b43;background:#0d291f;color:#65e3a7;border-radius:999px;padding:7px 11px;font-size:11px;white-space:nowrap}.live i{display:inline-block;width:6px;height:6px;background:var(--green);border-radius:50%;margin-right:5px}.tabs{display:flex;gap:8px;overflow:auto;padding:2px 1px 7px;margin-bottom:9px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{flex:0 0 auto;border:1px solid var(--line);background:#101720;color:#dfe7ef;border-radius:999px;padding:10px 14px;font-weight:800;font-size:12px}.tab.active{background:#321417;border-color:#7b292e;color:#fff}.tab-add{border:1px dashed #5a6675;background:transparent;color:#cbd5e1;border-radius:999px;padding:10px 14px;font-weight:800;font-size:12px}.grid{display:grid;gap:10px}.material-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mat{min-height:104px;text-align:left;padding:17px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,#141c26,#0f151e);color:#fff;position:relative}.mat:hover{border-color:#536276}.mat.primary{border-color:#7d2025}.mat b{display:block;font-size:17px}.mat small{display:block;color:var(--muted);margin-top:6px;font-size:11px}.mat .dot{position:absolute;right:14px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--red)}.mat-delete{position:absolute;right:10px;bottom:9px;width:27px;height:27px;border:1px solid #6b272c;background:#351519;color:#ff9296;border-radius:8px;font-size:18px;line-height:1;font-weight:900;z-index:2}.mat-delete:hover{background:#4a1b20}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:11px}.secondary{border:1px solid var(--line);background:var(--panel);color:#fff;border-radius:13px;padding:13px;font-weight:800;font-size:12px}.section-head{display:flex;align-items:center;gap:11px;margin-bottom:16px}.section-head>div{flex:1}.back{border:1px solid var(--line);background:var(--panel);color:#fff;width:40px;height:40px;border-radius:11px;font-size:26px}.text-btn{border:0;background:transparent;color:#dce5ef;font-weight:800;padding:8px}.danger{color:#ff777c}.sessionbar{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;margin-bottom:10px}.field label,.sessionbar label{display:block;color:var(--muted);font-size:11px;font-weight:800;margin-bottom:5px}.select-add{display:grid;grid-template-columns:1fr 42px;gap:6px}.add-inline{border:1px solid #7b292e;background:#321417;color:#fff;border-radius:11px;font-size:20px;font-weight:900}.field input,.field select,.sessionbar select,.filters input,.filters select{width:100%;background:#0d141c;color:#fff;border:1px solid var(--line);border-radius:11px;padding:12px;outline:none}.field input:focus,.field select:focus,.sessionbar select:focus,.filters input:focus,.filters select:focus{border-color:#68798d}.sessioncount{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:8px 13px;text-align:center}.sessioncount strong{font-size:19px;display:block}.sessioncount span{font-size:9px;color:var(--muted)}.card{background:rgba(17,24,33,.94);border:1px solid var(--line);border-radius:var(--radius);padding:15px;margin-bottom:10px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field.wide{grid-column:1/-1}.unitrow{display:grid;grid-template-columns:1fr 115px;gap:7px}.primary{width:100%;margin-top:12px;border:0;background:linear-gradient(180deg,#f02c33,#c7131a);color:#fff;border-radius:13px;padding:15px;font-weight:900;box-shadow:0 7px 22px rgba(227,27,35,.16)}.primary:active{transform:translateY(1px)}.last{margin-top:9px;padding:9px 11px;border-radius:11px;background:#0b2118;color:#72e3ac;font-size:11px}.card-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}.card-title h3{margin:0;font-size:15px}.total-badge{background:#2a1417;color:#ff777c;border:1px solid #5c2428;padding:6px 9px;border-radius:9px;font-weight:900}.rows{display:flex;flex-direction:column;gap:7px}.empty{color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;gap:9px;align-items:center;padding:11px;border:1px solid #202b38;background:#101720;border-radius:11px}.row-main b{display:block;font-size:12px}.row-main small,.row-val small{color:var(--muted);font-size:10px}.row-val{text-align:right;font-weight:900}.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:7px;margin-bottom:10px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:var(--radius)}table{border-collapse:collapse;width:100%;min-width:850px;background:#101720}.table th,.table td{padding:11px;border-bottom:1px solid #222d3a;text-align:left;font-size:11px}.table th{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.08em;background:#0d141c;position:sticky;top:0}.table td strong{font-size:12px}.emptybox{text-align:center;padding:30px;color:var(--muted);border:1px dashed #344152;border-radius:14px}.history-list{display:flex;flex-direction:column;gap:7px}.history-item{padding:12px;border:1px solid var(--line);background:var(--panel);border-radius:13px}.hi{display:flex;justify-content:space-between;gap:10px}.history-item small{display:block;color:var(--muted);margin-top:5px;font-size:10px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.stat{background:var(--panel);border:1px solid var(--line);padding:11px;border-radius:13px}.stat b{font-size:18px;display:block}.stat span{font-size:9px;color:var(--muted)}.modal-back{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:end;justify-content:center;padding:10px;z-index:30}.modal-back.open{display:flex}.modal{width:min(700px,100%);background:#121a23;border:1px solid #354254;border-radius:19px;padding:17px;max-height:92vh;overflow:auto}.modal h3{margin:0;font-size:19px}.modal p{color:var(--muted);font-size:11px;line-height:1.45}.modal-actions{display:flex;gap:7px;margin-top:13px}.modal-actions button{flex:1;padding:12px;border-radius:11px;border:1px solid var(--line);background:#19232e;color:#fff;font-weight:800}.modal-actions .danger-btn{background:#351519;border-color:#6b272c;color:#ff9296}.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.checkline{display:flex;gap:8px;align-items:center;background:#0d141c;border:1px solid var(--line);border-radius:11px;padding:11px;font-size:12px}.checkline input{accent-color:var(--red)}.mini-actions{display:flex;gap:6px;margin-top:7px}.mini{border:1px solid var(--line);background:#111a23;color:#fff;border-radius:9px;padding:8px 10px;font-size:11px;font-weight:800}.listbox{display:flex;flex-direction:column;gap:6px;margin-top:10px}.listitem{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#0d141c;border:1px solid var(--line);border-radius:10px;padding:9px 10px;font-size:11px}.listitem button{border:0;background:transparent;color:#ff747a;font-weight:900}.name-modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:14px;z-index:60}.name-modal.open{display:flex}.name-box{width:min(420px,100%);background:#121a23;border:1px solid #354254;border-radius:18px;padding:18px;box-shadow:0 20px 70px rgba(0,0,0,.5)}.name-box h3{margin:0 0 12px;font-size:18px}.name-box label{display:block;color:var(--muted);font-size:11px;font-weight:800;margin-bottom:6px}.name-box input{width:100%;background:#0d141c;color:#fff;border:1px solid var(--line);border-radius:11px;padding:13px;outline:none}.name-box input:focus{border-color:#68798d}.name-actions{display:flex;gap:7px;margin-top:12px}.name-actions button{flex:1;border:1px solid var(--line);background:#19232e;color:#fff;border-radius:11px;padding:12px;font-weight:800}.name-actions .ok{border:0;background:linear-gradient(180deg,#f02c33,#c7131a)}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,18px);opacity:0;background:#e9f8f1;color:#10271c;padding:10px 14px;border-radius:999px;font-size:11px;font-weight:900;transition:.2s;z-index:50;box-shadow:0 10px 30px rgba(0,0,0,.35);pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:700px){.app{padding:12px 11px 32px}.material-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:auto}.filters{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.hero{align-items:start}.hero h1{font-size:27px}.quick{grid-template-columns:1fr 1fr}.quick button:last-child{grid-column:1/-1}.modal-grid{grid-template-columns:1fr}.modal-back{align-items:end}}
+
+
+/* V9 - ajustes de usabilidade mobile */
+@media(max-width:700px){
+  body{overscroll-behavior-y:none}
+  .app{padding-bottom:calc(42px + env(safe-area-inset-bottom))}
+  .primary{min-height:52px;font-size:13px}
+  .back,.icon,.add-inline{min-width:44px;min-height:44px}
+  .balance-actions button{width:42px;height:40px;font-size:18px}
+  .balance-main{min-height:54px}
+  .field input,.field select,.sessionbar select,.filters input,.filters select{min-height:46px}
+}
+.quick-amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.quick-amounts button{border:1px solid var(--line);background:#0d141c;color:#fff;border-radius:10px;padding:10px 6px;font-weight:900;font-size:12px;min-height:42px}
+.quick-amounts button:active{transform:translateY(1px);background:#18222e}
+
+.adjust-modal{position:fixed;inset:0;background:rgba(0,0,0,.68);display:none;align-items:center;justify-content:center;padding:18px;z-index:40}.adjust-modal.open{display:flex}.adjust-box{width:min(380px,100%);background:#111821;border:1px solid #303d4d;border-radius:18px;padding:18px;box-shadow:0 24px 80px #0008}.adjust-box h3{margin:0 0 8px}.adjust-current{color:#91a0b2;font-size:12px;margin-bottom:16px}.adjust-box>label{display:block;color:#91a0b2;font-size:11px;font-weight:800;margin-bottom:6px}.adjust-box input{width:100%;font-size:24px;font-weight:800;text-align:center;padding:13px;border:1px solid #344252;background:#0b1118;color:#fff;border-radius:12px;outline:none}.balance-filters{display:grid;grid-template-columns:1.25fr 1fr 1.15fr 1.4fr;gap:7px;margin-bottom:10px}.balance-list{display:flex;flex-direction:column;gap:5px}.balance-row{border:1px solid var(--line);background:#101720;border-radius:11px;overflow:hidden}.balance-main{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 12px;cursor:pointer}.balance-main b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.balance-main small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.balance-total{font-weight:900;font-size:14px;white-space:nowrap}.balance-total small{display:inline;color:var(--muted);font-size:9px;margin:0}.balance-arrow{color:var(--muted);font-size:15px;margin-left:5px;transition:.15s}.balance-row.open .balance-arrow{transform:rotate(180deg);color:#fff}.balance-details{display:none;border-top:1px solid var(--line);grid-template-columns:1fr 1fr}.balance-row.open .balance-details{display:grid}.balance-location{padding:10px 11px}.balance-location+ .balance-location{border-left:1px solid var(--line)}.balance-location span{display:block;color:var(--muted);font-size:9px;font-weight:900;margin-bottom:4px}.balance-value{font-size:17px;font-weight:900}.balance-value small{font-size:9px;color:var(--muted)}.balance-actions{display:flex;gap:5px;margin-top:7px}.balance-actions button{width:34px;height:30px;border:1px solid var(--line);background:#0d141c;color:#fff;border-radius:8px;font-weight:900;font-size:15px}.balance-actions .plus{border-color:#24583f;color:#69e3a8}.balance-actions .minus{border-color:#632c30;color:#ff858a}.balance-empty{padding:22px;text-align:center;color:var(--muted);border:1px solid var(--line);border-radius:12px;font-size:12px}@media(max-width:700px){.balance-filters{grid-template-columns:1fr 1fr}.balance-filters input{grid-column:1/-1}.balance-main{padding:10px}.balance-details{grid-template-columns:1fr 1fr}}
+.balance-filters select,.balance-filters input{appearance:none;-webkit-appearance:none;background:#101720!important;color:#dfe7ef!important;border:1px solid var(--line)!important;border-radius:9px!important;padding:9px 10px!important;outline:none}.balance-filters select:focus,.balance-filters input:focus{border-color:#566476!important}.balance-filters select option{background:#111821;color:#fff}.live{cursor:pointer;font:inherit}.live:focus{outline:none}.loginModal{}#loginModal .adjust-box input{margin-bottom:2px}
+.identify-actions{display:flex;gap:8px;flex-wrap:wrap}.identify-card{border:1px solid var(--line);background:#101720;border-radius:14px;padding:12px;margin-bottom:8px}.identify-card strong{font-size:13px}.identify-meta{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.45}.identify-badge{display:inline-block;padding:4px 7px;border-radius:7px;font-size:9px;font-weight:900;margin-left:6px}.badge-ok{background:#0d291f;color:#65e3a7}.badge-warn{background:#2c2411;color:#f0c66b}.badge-no{background:#351519;color:#ff9296}.identify-choice{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--line);background:#0d141c;padding:9px;border-radius:10px;margin-top:6px}.identify-choice button{border:1px solid #24583f;background:#0d291f;color:#65e3a7;border-radius:8px;padding:7px 10px;font-weight:900;font-size:10px}.field-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:8px}.edit-btn{border:1px solid var(--line);background:#111a23;color:#dfe7ef;border-radius:8px;padding:6px 9px;font-size:10px;font-weight:900}.balance-main .edit-btn{margin-left:6px}.swap-box{border:1px solid #5a421e;background:#241b0d;border-radius:13px;padding:12px;margin-top:10px}.swap-box b{display:block;margin-bottom:4px}.swap-box small{color:#d7c18a;font-size:10px}.ident-empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed #344152;border-radius:14px}
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="catalogo_iquattro.js"></script><script src="formulas_conversao.js"></script><style>.ident-tabs{display:flex;gap:7px;margin:10px 0}.ident-tab{flex:1;border:1px solid #273341;background:#101720;color:#dfe7ef;border-radius:11px;padding:11px;font-weight:900}.ident-tab.active{background:#321417;border-color:#7b292e;color:#fff}.ident-count{opacity:.75;margin-left:4px}.confirmed-card{opacity:.96}.confirmed-card .identify-choice{border-color:#214b39}.confirm-code{color:#65e3a7;font-weight:900}</style><style>
+#iquattroSearchModal .name-box{width:min(760px,94vw);max-height:86vh;overflow:auto}
+.iquattro-search-row{display:flex;gap:8px;align-items:center;margin:10px 0}.iquattro-search-row input{flex:1}.iquattro-results{display:grid;gap:7px;margin-top:10px}.iquattro-result{display:flex;gap:10px;justify-content:space-between;align-items:center;border:1px solid #263342;background:#101720;border-radius:11px;padding:10px}.iquattro-result-main{min-width:0}.iquattro-result-main b{display:block}.iquattro-result-main small{display:block;color:var(--muted);margin-top:3px;line-height:1.35}.iqunit{display:inline-block;margin-left:6px;padding:2px 6px;border-radius:6px;background:#263342;font-size:10px}.iqunit.m2{background:#214b39;color:#b8f5d8}.iquattro-hint{color:var(--muted);font-size:11px;line-height:1.4}.ident-manual{margin-top:8px}.ident-manual button{background:transparent;border:0;color:#8fb7ff;padding:4px 0;font-weight:800;cursor:pointer}.ident-conversion{color:#8bd7b0;font-size:11px;margin-top:6px}
+</style></head>
+<body>
+<div class="app">
+<header class="top"><div><div class="brand">MABFLEX <span>INVENTÁRIO</span></div></div><div class="top-actions"><button class="icon" id="manageBtn" title="Cadastros">⚙</button><button class="icon" id="backupBtn" title="Backup">↥</button><button class="icon" id="restoreBtn" title="Restaurar">↧</button></div></header>
+<main>
+<section id="home" class="view active"><div class="hero"><div><p class="eyebrow">INVENTÁRIO</p><h1>Escolha o material</h1></div><button class="live" id="cloudStatus"><i></i>Salvamento ativo</button></div><div id="materialTabs" class="tabs"></div><div id="materialGrid" class="grid material-grid"></div><div class="quick"><button class="secondary" id="inventoryBtn">📊 Inventário</button><button class="secondary" id="balanceBtn">⚖ Saldos</button><button class="secondary" id="historyBtn">🕘 Histórico</button><button class="secondary" id="exportsBtn">📤 Exportações</button><button class="secondary" id="identifyBtn">🔎 Identificar produtos</button></div></section>
+<section id="counter" class="view"><div class="section-head"><button class="back" data-back>‹</button><div><p class="eyebrow">CONTANDO</p><h2 id="counterTitle">Pérola</h2></div><button id="clearForm" class="text-btn">Limpar</button></div><div class="sessionbar"><label>Local<select id="local"><option>Estoque Cima</option><option>Estoque Baixo</option><option>Recebimento</option><option>Produção</option><option>Outro</option></select></label><div class="sessioncount"><strong id="launchCount">0</strong><span>lançamentos</span></div></div><div class="card"><div id="dynamicForm"></div><button id="addBtn" class="primary">＋ ADICIONAR CONTAGEM</button><div id="lastAdded" class="last" style="display:none"></div></div><div class="card"><div class="card-title"><div><p class="eyebrow">SESSÃO</p><h3>Já contado</h3></div><span id="sessionTotal" class="total-badge">0</span></div><div id="sessionRows" class="rows empty">Nenhuma contagem ainda.</div></div></section>
+<section id="inventory" class="view"><div class="section-head"><button class="back" data-back>‹</button><div><p class="eyebrow">CONSOLIDADO</p><h2>Inventário</h2></div><button class="text-btn" id="exportBtn2">Excel</button></div><div class="stats" id="stats"></div><div class="filters"><input id="search" placeholder="Buscar material, modelo, largura..."><select id="filterMat"><option value="">Todos os materiais</option></select><select id="filterLocal"><option value="">Todos os locais</option></select></div><div id="inventoryTable"></div></section>
+<section id="balance" class="view"><div class="section-head"><button class="back" data-back>‹</button><div><p class="eyebrow">ESTOQUE</p><h2>Saldos</h2></div></div><div class="balance-filters"><select id="balanceTipo"><option value="">Todos os tipos</option></select><select id="balanceMicra"><option value="">Todas as micras / gramas</option></select><select id="balanceLocal"><option value="">Todos os estoques</option><option value="Estoque Cima">Estoque Cima</option><option value="Estoque Baixo">Estoque Baixo</option></select><input id="balanceSearch" placeholder="Buscar..."/></div><div id="balanceTable"></div></section>
+<section id="identification" class="view"><div class="section-head"><button class="back" data-back>‹</button><div><p class="eyebrow">CONFERÊNCIA</p><h2>Identificar produtos</h2></div><button class="text-btn" id="refreshIdentification">Atualizar</button></div><div class="card"><div class="card-title"><h3>Identificação com a base do sistema</h3></div><p class="muted" style="margin-top:0">O sistema compara somente materiais que ainda não foram identificados. Correspondências seguras podem ser confirmadas automaticamente; casos com mais de um código ficam para conferência.</p><div class="identify-actions"><button class="primary" id="runIdentification">🔄 ATUALIZAR IDENTIFICAÇÃO</button></div></div><div id="identificationList"></div></section><section id="history" class="view"><div class="section-head"><button class="back" data-back>‹</button><div><p class="eyebrow">REGISTRO</p><h2>Histórico</h2></div></div><div id="historyList" class="history-list"></div></section>
+<section id="exports" class="view"><div class="section-head"><button class="back" data-back>‹</button><div><p class="eyebrow">ARQUIVOS</p><h2>Exportações</h2></div></div><div class="card"><div class="card-title"><h3>Planilha de conferência</h3></div><button class="primary" id="exportReport">📊 GERAR PLANILHA DE CONFERÊNCIA</button></div><div class="card"><div class="card-title"><h3>Arquivo para importação</h3></div><p class="muted" style="margin-top:0">Gera uma planilha separada para cada estoque, no formato aceito pelo iQuattro.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="primary" id="exportImportCima">↗ ESTOQUE CIMA</button><button class="primary" id="exportImportBaixo">↗ ESTOQUE BAIXO</button></div><p class="muted" style="margin-bottom:6px">Para conferir os itens ainda sem código, gere também a planilha de conferência.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button class="secondary" id="exportConfCima">📋 CONFERÊNCIA CIMA</button><button class="secondary" id="exportConfBaixo">📋 CONFERÊNCIA BAIXO</button></div></div></section>
+</main></div>
+<div class="modal-back" id="manageModal"><div class="modal"><h3>Cadastros do inventário</h3><div class="modal-grid"><div class="card" style="margin:0"><h3 style="font-size:14px">Nova aba</h3><div class="field"><label>Nome da aba/material</label><input id="newMaterialName" placeholder="Ex.: Metalizado, PEAD, Tubetes"></div><div class="field" style="margin-top:8px"><label>Categoria</label><select id="newMaterialCategory"><option>Filme</option><option>Adesivo</option><option>Tubetes</option><option>Ribbons</option><option>Outro</option><option>Personalizado</option></select></div><label style="display:block;color:var(--muted);font-size:11px;font-weight:800;margin-top:9px">O que esta aba terá?</label><div class="field-checks"><label class="checkline"><input type="checkbox" value="tipo" class="new-field"> Tipo</label><label class="checkline"><input type="checkbox" value="modelo" class="new-field"> Modelo</label><label class="checkline"><input type="checkbox" value="largura" class="new-field"> Medida / largura</label><label class="checkline"><input type="checkbox" value="micra" class="new-field"> Micra</label><label class="checkline"><input type="checkbox" value="qtd_kg" class="new-field"> KG</label><label class="checkline"><input type="checkbox" value="qtd_mtl" class="new-field"> Metro linear</label><label class="checkline"><input type="checkbox" value="qtd_m2" class="new-field"> Metro quadrado</label><label class="checkline"><input type="checkbox" value="un" class="new-field"> Unidade</label><label class="checkline"><input type="checkbox" value="diametro" class="new-field"> Diâmetro</label><label class="checkline"><input type="checkbox" value="medida" class="new-field"> Medida</label></div><button class="primary" id="createMaterial">＋ CRIAR ABA</button></div><div class="card" style="margin:0"><h3 style="font-size:14px">Tipos por aba</h3><div class="field"><label>Aba</label><select id="tipoMaterialAba"></select></div><div class="field" style="margin-top:8px"><label>Novo tipo</label><input id="newMaterialTipo" placeholder="Ex.: Transparente, Metalizado"></div><button class="primary" id="createMaterialTipo">＋ ADICIONAR TIPO À ABA</button><div id="materialTiposList" class="listbox"></div></div><div class="card" style="margin:0"><h3 style="font-size:14px">Opções gerais</h3><div class="field"><label>Adicionar opção</label><input id="newOptionName" placeholder="Nome da opção"></div><div class="field" style="margin-top:8px"><label>Onde</label><select id="optionType"><option value="modelo">Modelo de adesivo</option><option value="tipoAdesivo">Material do adesivo</option><option value="tipoFilme">Tipo de filme</option></select></div><button class="primary" id="createOption">＋ ADICIONAR OPÇÃO</button></div></div><div class="card"><div class="card-title"><h3>Abas criadas</h3></div><div id="materialList" class="listbox"></div></div><div class="card"><div class="card-title"><h3>Opções cadastradas</h3></div><div id="optionsList" class="listbox"></div></div><div class="card swap-box"><b>↔ Corrigir localização dos estoques</b><small>Inverte Cima ↔ Baixo de todos os lançamentos atuais. Use uma única vez se a contagem foi lançada no estoque invertido.</small><button class="primary" id="swapStocks" style="margin-top:9px">INVERTER CIMA ↔ BAIXO</button></div><div class="modal-actions"><button id="closeManage">Fechar</button></div></div></div>
+<div class="adjust-modal" id="loginModal"><div class="adjust-box"><h3>Entrar</h3><div class="adjust-current">Acesso ao estoque online</div><label>E-mail</label><input id="loginEmail" type="email" autocomplete="username"><label style="margin-top:10px">Senha</label><input id="loginPassword" type="password" autocomplete="current-password"><div class="name-actions"><button id="loginLocal">Usar local</button><button class="ok" id="loginOk">Entrar</button></div></div></div><div class="adjust-modal" id="adjustModal"><div class="adjust-box"><h3 id="adjustTitle">Ajustar saldo</h3><div class="adjust-current" id="adjustCurrent"></div><label>Quantidade</label><input id="adjustInput" type="number" inputmode="decimal" min="0" step="any" enterkeyhint="done" autocomplete="off"/><div class="quick-amounts"><button type="button" data-adjust-quick="1">+1</button><button type="button" data-adjust-quick="5">+5</button><button type="button" data-adjust-quick="10">+10</button><button type="button" data-adjust-quick="50">+50</button></div><div class="name-actions"><button id="adjustCancel">Cancelar</button><button class="ok" id="adjustOk">Aplicar</button></div></div></div><div class="name-modal" id="nameModal"><div class="name-box"><h3 id="nameModalTitle">Adicionar</h3><label id="nameModalLabel">Nome</label><input id="nameModalInput" autocomplete="off" maxlength="80"><div class="name-actions"><button id="nameModalCancel">Cancelar</button><button class="ok" id="nameModalOk">Adicionar</button></div></div></div><div class="name-modal" id="editModal"><div class="name-box"><h3>Corrigir material contado</h3><div id="editFields"></div><div class="name-actions"><button id="editCancel">Cancelar</button><button class="ok" id="editOk">Salvar</button></div></div></div><div class="name-modal" id="iquattroSearchModal"><div class="name-box"><h3>Buscar no iQuattro</h3><div class="iquattro-hint" id="iquattroSearchHint">Digite código, descrição ou parte do nome.</div><div class="iquattro-search-row"><input id="iquattroSearchInput" autocomplete="off" placeholder="Código ou descrição"><button class="ok" id="iquattroSearchBtn">Buscar</button></div><div id="iquattroResults" class="iquattro-results"></div><div class="name-actions"><button id="iquattroSearchClose">Fechar</button></div></div></div><div class="toast" id="toast"></div><input type="file" id="restoreFile" accept="application/json" style="display:none">
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) { window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{})); }
+
+const CLOUD_CFG=window.MABFLEX_SUPABASE||{};
+let cloud=null,cloudUser=null,cloudOnline=false,cloudChannel=null,cloudVersion=0,cloudPollTimer=null,cloudHealthTimer=null,cloudReconnectTimer=null,cloudServerData=null;
+const OPKEY='mabflex_pending_ops_v18';
+const RESET_BUILD='mabflex_reset_v18_done';
+if(!localStorage.getItem(RESET_BUILD)){ localStorage.removeItem('mabflex_pending_ops_v1'); localStorage.removeItem('mabflex_pending_ops_v2'); localStorage.removeItem('mabflex_pending_ops_v3'); localStorage.removeItem('mabflex_inventario_v4'); localStorage.setItem(RESET_BUILD,'1'); }
+function pendingOps(){try{return JSON.parse(localStorage.getItem(OPKEY)||'[]')}catch{return[]}}
+function setPending(a){localStorage.setItem(OPKEY,JSON.stringify(a))}
+function queueOp(op){let a=pendingOps(); if(op.id && a.some(x=>x.id===op.id)) return; a.push(op); setPending(a)}
+function refreshViews(){renderHome();if($('#balance')?.classList.contains('active'))renderBalance();if($('#inventory')?.classList.contains('active'))renderInventory();if($('#history')?.classList.contains('active'))renderHistory()}
+function normalizeState(x){
+  const s=x||structuredClone(DEFAULT);
+  s.materials=Array.isArray(s.materials)?s.materials:[];
+  s.options=s.options&&typeof s.options==='object'?s.options:structuredClone(DEFAULT.options);
+  s.options.modelos=Array.isArray(s.options.modelos)?s.options.modelos:[];
+  s.options.tipoAdesivo=Array.isArray(s.options.tipoAdesivo)?s.options.tipoAdesivo:[];
+  s.options.tipoFilme=Array.isArray(s.options.tipoFilme)?s.options.tipoFilme:[];
+  // Padroniza a opção amigável usada no inventário: METALIZADO.
+  // Mantém a identificação compatível com registros antigos que ainda tenham "Metal".
+  s.options.tipoFilme=s.options.tipoFilme.map(v=>norm(v)==='metal'?'Metalizado':v).filter((v,i,a)=>a.findIndex(x=>norm(x)===norm(v))===i);
+  s.entries=Array.isArray(s.entries)?s.entries:[];
+  s.history=Array.isArray(s.history)?s.history:[];
+  s.adjustments=Array.isArray(s.adjustments)?s.adjustments:[];
+  s.identificacoes=s.identificacoes&&typeof s.identificacoes==='object'&&!Array.isArray(s.identificacoes)?s.identificacoes:{};
+
+  // Migração visual/compatível dos lançamentos antigos:
+  // tudo que foi lançado como "Metal" passa a aparecer como "Metalizado".
+  // Fazemos isso também nas chaves de saldo/identificação para não quebrar os grupos existentes.
+  const oldIdent=s.identificacoes;
+  const newIdent={};
+  const normalizeEntryType=(e)=>{
+    if(e && norm(e.category)==='FILME' && norm(e.tipo)==='METAL') e.tipo='Metalizado';
+    return e;
+  };
+  s.entries=s.entries.map(normalizeEntryType);
+  s.history=s.history.map(normalizeEntryType);
+  s.adjustments=s.adjustments.map(a=>{
+    try{
+      const k=JSON.parse(a.key||'null');
+      if(Array.isArray(k) && norm(k[1])==='FILME' && norm(k[2])==='METAL'){k[2]='Metalizado'; a.key=JSON.stringify(k);}
+    }catch{}
+    return a;
+  });
+  Object.entries(oldIdent).forEach(([key,val])=>{
+    let nk=key;
+    try{
+      const k=JSON.parse(key);
+      if(Array.isArray(k) && norm(k[1])==='FILME' && norm(k[2])==='METAL'){k[2]='Metalizado';nk=JSON.stringify(k);}
+    }catch{}
+    newIdent[nk]=val;
+  });
+  s.identificacoes=newIdent;
+  return s;
+}
+function applyCloudState(data,force=false){
+  if(!data?.dados)return false;
+  const v=Number(data.versao||0); cloudServerData=data;
+  if(!force && pendingOps().length) return false;
+  if(v && cloudVersion && v<cloudVersion) return false;
+  state=normalizeState(data.dados); cloudVersion=v; saveLocalOnly(); refreshViews(); return true;
+}
+function setServerSnapshot(data){ if(data?.dados) cloudServerData=data; }
+async function cloudInit(){
+  if(!CLOUD_CFG.url||!CLOUD_CFG.anonKey||CLOUD_CFG.url.includes('COLOQUE')) return setCloudStatus(false,'LOCAL');
+  try{
+    if(!window.supabase || typeof window.supabase.createClient!=='function'){ console.warn('Supabase JS não carregou; iniciando em modo local até a biblioteca ficar disponível.'); setCloudStatus(false,'LOCAL'); return; }
+    cloud=window.supabase.createClient(CLOUD_CFG.url,CLOUD_CFG.anonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
+    let {data}=await cloud.auth.getSession(); cloudUser=data.session?.user||null;
+    if(!cloudUser){setCloudStatus(false,'ENTRAR');openLogin();return;}
+    let test=await cloud.rpc('obter_inventario'); if(test.error) throw test.error;
+    cloudOnline=true; setCloudStatus(true,'ONLINE');
+    cloudChannel=cloud.channel('mabflex-inventario-v18')
+      .on('postgres_changes',{event:'UPDATE',schema:'public',table:'inventario_estado',filter:'id=eq.1'},payload=>{
+        const incoming={dados:payload.new?.dados,versao:payload.new?.versao,atualizado_em:payload.new?.atualizado_em};
+        const v=Number(incoming.versao||0); setServerSnapshot(incoming);
+        // Sempre aplica o servidor se não houver operação local pendente.
+        if(!pendingOps().length && v>cloudVersion) applyCloudState(incoming,true);
+      })
+      .subscribe(status=>{
+        if(status==='SUBSCRIBED'){cloudOnline=true;setCloudStatus(true,'ONLINE');}
+        else if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'||status==='CLOSED'){scheduleCloudReconnect();}
+      });
+    // Primeiro traz a verdade do servidor. Só depois reaplica operações que realmente ficaram offline.
+    await cloudPull(true,true);
+    await restoreExactIdentifications();
+    await cloudFlush();
+    await cloudPull(true,false);
+    clearInterval(cloudPollTimer);
+    startCloudHealth();
+    window.addEventListener('online',async()=>{scheduleCloudReconnect(0)});
+    window.addEventListener('offline',()=>setCloudStatus(false,'SEM INTERNET'));
+    // Ao reconectar: servidor primeiro, operações offline depois. Nunca envia o estado antigo inteiro.
+    await cloudFlush();
+    document.addEventListener('visibilitychange',async()=>{if(!document.hidden&&cloudOnline){await cloudFlush()}});
+    window.addEventListener('focus',async()=>{if(cloudOnline)await cloudFlush()});
+  }catch(e){cloudOnline=false;setCloudStatus(false,'RECONEXÃO');scheduleCloudReconnect();console.warn(e)}
+}
+function startCloudPolling(){clearInterval(cloudPollTimer);cloudPollTimer=null}
+function isNetworkError(err){const msg=String(err?.message||err||'').toLowerCase();const code=String(err?.code||'');return !navigator.onLine || code==='PGRST301' || /failed to fetch|network|fetch failed|timeout|timed out|connection|websocket|socket|503|502|504/.test(msg)}
+function scheduleCloudReconnect(delay=3000){if(!cloud||!cloudUser)return;clearTimeout(cloudReconnectTimer);setCloudStatus(false,navigator.onLine?'RECONEXÃO':'SEM INTERNET');cloudReconnectTimer=setTimeout(async()=>{if(!navigator.onLine){scheduleCloudReconnect(5000);return}try{const r=await cloud.rpc('obter_inventario');if(r.error)throw r.error;cloudOnline=true;setCloudStatus(true,'ONLINE');await cloudPull(true,true);await cloudFlush();if(cloudChannel)await cloud.removeChannel(cloudChannel);cloudChannel=cloud.channel('mabflex-inventario-v18').on('postgres_changes',{event:'UPDATE',schema:'public',table:'inventario_estado',filter:'id=eq.1'},payload=>{const incoming={dados:payload.new?.dados,versao:payload.new?.versao,atualizado_em:payload.new?.atualizado_em};const v=Number(incoming.versao||0);setServerSnapshot(incoming);if(!pendingOps().length&&v>cloudVersion)applyCloudState(incoming,true)}).subscribe(status=>{if(status==='SUBSCRIBED')setCloudStatus(true,'ONLINE');else if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'||status==='CLOSED')scheduleCloudReconnect()});}catch(e){cloudOnline=false;scheduleCloudReconnect(5000)}},delay)}
+function startCloudHealth(){clearInterval(cloudHealthTimer);cloudHealthTimer=setInterval(async()=>{if(!cloud||!cloudUser)return;if(!navigator.onLine){cloudOnline=false;setCloudStatus(false,'SEM INTERNET');return}try{const r=await cloud.rpc('obter_inventario');if(r.error)throw r.error;cloudOnline=true;setCloudStatus(true,'ONLINE');if(pendingOps().length)await cloudFlush()}catch(e){if(isNetworkError(e)){cloudOnline=false;scheduleCloudReconnect(5000)}}},8000)}
+function openLogin(){$('#loginModal').classList.add('open');setTimeout(()=>$('#loginEmail').focus(),60)}
+function closeLogin(){$('#loginModal').classList.remove('open')}
+async function doLogin(){let email=$('#loginEmail').value.trim(),password=$('#loginPassword').value;if(!email||!password)return toast('Informe e-mail e senha.');if(!cloud)return toast('Nuvem não configurada.');let r=await cloud.auth.signInWithPassword({email,password});if(r.error)return toast('Login inválido.');cloudUser=r.data.user;let test=await cloud.rpc('obter_inventario');if(test.error){cloudOnline=false;setCloudStatus(false,'BANCO DESATUALIZADO');return toast('Banco desatualizado: execute o SQL da V17 no Supabase.')}cloudOnline=true;closeLogin();setCloudStatus(true,'ONLINE');await cloudPull(true,true);await cloudFlush();toast('Online ✓')}
+async function doLogout(){if(cloudChannel)await cloud.removeChannel(cloudChannel);clearInterval(cloudPollTimer);clearInterval(cloudHealthTimer);clearTimeout(cloudReconnectTimer);if(cloud)await cloud.auth.signOut();cloudUser=null;cloudOnline=false;cloudVersion=0;cloudServerData=null;setCloudStatus(false,'ENTRAR')}
+function setCloudStatus(on,label){let el=document.querySelector('.live');if(el){el.innerHTML=`<i></i>${label}`;el.style.borderColor=on?'#1e5b43':'#5a421e';el.style.background=on?'#0d291f':'#241b0d';el.style.color=on?'#65e3a7':'#f0c66b'}}
+function saveLocalOnly(){localStorage.setItem(KEY,JSON.stringify(state))}
+async function cloudPull(silent=false,forceServer=false){
+  if(!cloud||!cloudUser)return null;
+  let r=await cloud.rpc('obter_inventario'); if(r.error){if(!silent)throw r.error;return null;}
+  if(r.data?.dados){
+  setServerSnapshot(r.data); cloudVersion=Math.max(cloudVersion,Number(r.data.versao||0));
+  if(forceServer || !pendingOps().length){
+    const local=normalizeState(state), incoming=normalizeState(r.data.dados);
+    // Nunca apaga um inventário local não vazio só porque uma resposta vazia chegou.
+    // Quando ambos têm dados, o servidor continua sendo a base; identificações locais são preservadas.
+    if(incoming.entries.length===0 && local.entries.length>0 && forceServer){
+      state=local;
+    }else{
+      state=mergeIdentificationState(r.data,local);
+    }
+    cloudVersion=Number(r.data.versao||cloudVersion); saveLocalOnly(); refreshViews();
+  }
+}
+  return r.data;
+}
+function mergeIdentificationState(serverData, localState){
+  const incoming=normalizeState(serverData?.dados||serverData||{});
+  const local=normalizeState(localState||state);
+  const merged={...(incoming.identificacoes||{})};
+  // Migra automaticamente identificações que já estejam gravadas dentro das contagens.
+  for(const e of incoming.entries){
+    if(e?.codigoProduto){
+      const k=balanceKey(e);
+      merged[k]={...(merged[k]||{}),codigo:e.codigoProduto,unidade:e.unidadeSistema||e.un||'',status:'confirmado',confianca:e.identificacaoConfianca||'confirmado'};
+    }
+  }
+  // Identificações locais são mantidas enquanto uma operação offline ainda estiver pendente.
+  for(const [k,v] of Object.entries(local.identificacoes||{})) if(v?.codigo && !merged[k]) merged[k]=v;
+  incoming.identificacoes=merged;
+  for(const e of incoming.entries){
+    const id=merged[balanceKey(e)];
+    if(id?.codigo){e.codigoProduto=id.codigo;e.unidadeSistema=id.unidade||e.unidadeSistema||e.un;e.identificacaoStatus='confirmado';}
+  }
+  return incoming;
+}
+async function cloudCallOp(op){
+  if(!cloud||!cloudOnline){queueOp(op);return null}
+  const before=normalizeState(state);
+  let r=await cloud.rpc('aplicar_operacao',{p_op:op});
+  if(r.error){
+    console.error('ERRO SUPABASE aplicar_operacao:',r.error);
+    if(isNetworkError(r.error)){
+      queueOp(op);
+      cloudOnline=false;
+      scheduleCloudReconnect(1000);
+      return {__error:true,offline:true,error:r.error};
+    }
+    // Erro do próprio banco não significa que o aparelho ficou offline.
+    return {__error:true,offline:false,error:r.error};
+  }
+  if(r.data?.dados){
+    cloudVersion=Number(r.data.versao||cloudVersion);
+    setServerSnapshot(r.data);
+    if(op.type==='set_identification'){
+      // A resposta do servidor deve acrescentar a identificação, nunca apagar as anteriores.
+      state=mergeIdentificationState(r.data,before);
+      const id=op.identificacao||{};
+      state.identificacoes[op.key]={...(state.identificacoes[op.key]||{}),...id,status:'confirmado'};
+      for(const e of state.entries){if(balanceKey(e)===op.key){e.codigoProduto=state.identificacoes[op.key].codigo;e.unidadeSistema=state.identificacoes[op.key].unidade||e.unidadeSistema||e.un;e.identificacaoStatus='confirmado';}}
+      saveLocalOnly();
+      // A conferência será renderizada uma única vez pelo fluxo de identificação.
+    }else{
+      applyCloudState(r.data,true);
+    }
+  }
+  return r.data;
+}
+async function cloudAppendEntry(e){return cloudCallOp({id:e.id,type:'entry',entry:e})}
+async function cloudAdjustment(a){return cloudCallOp({id:a.id,type:'adjust',adjust:a})}
+async function cloudCatalogOp(op){return cloudCallOp(op)}
+async function cloudIdentificationOp(op){return cloudCallOp(op)}
+async function restoreExactIdentifications(){
+  try{
+    if(!cloudOnline)return;
+    state=normalizeState(state);
+    const pending=identificationCandidates();
+    let restored=0;
+    for(const g of pending){
+      const ms=(typeof window.findMatches==='function')?window.findMatches(g.e):[];
+      if(ms.length!==1)continue;
+      const c=ms[0].c;
+      try{
+        await updateEntryIdentification(groupKey(g),{codigo:c.codigo,unidade:catalogUnit(c),descricao:c.descricao,confianca:'restaurado'});
+        restored++;
+      }catch(err){console.error('Falha ao restaurar identificação',err);}
+    }
+    if(restored)console.log(`Identificações restauradas automaticamente: ${restored}`);
+  }catch(err){console.error('Falha na restauração automática das identificações',err)}
+}
+async function cloudFlush(){
+  if(!cloud||!cloudOnline)return;
+  const ops=pendingOps();
+  for(const op of ops.slice()){
+    let r=await cloud.rpc('aplicar_operacao',{p_op:op});
+    if(r?.error){
+      if(isNetworkError(r.error)){cloudOnline=false;scheduleCloudReconnect(1000);return}
+      console.error('Operação pendente rejeitada pelo banco:',r.error);
+      const bad=pendingOps();const bi=bad.findIndex(x=>x.id===op.id);if(bi>=0){bad.splice(bi,1);setPending(bad)}
+      continue;
+    }
+    if(r.data?.dados){
+      cloudVersion=Number(r.data.versao||cloudVersion);
+      setServerSnapshot(r.data);
+      if(op.type==='set_identification'){
+        state=mergeIdentificationState(r.data,state);
+        const id=op.identificacao||{};
+        state.identificacoes[op.key]={...(state.identificacoes[op.key]||{}),...id,status:'confirmado'};
+        for(const e of state.entries){if(balanceKey(e)===op.key){e.codigoProduto=state.identificacoes[op.key].codigo;e.unidadeSistema=state.identificacoes[op.key].unidade||e.unidadeSistema||e.un;e.identificacaoStatus='confirmado';}}
+        saveLocalOnly();
+      }else{
+        applyCloudState(r.data,true);
+      }
+    }
+    let cur=pendingOps();const idx=cur.findIndex(x=>x.id===op.id);if(idx>=0){cur.splice(idx,1);setPending(cur)}
+  }
+  setCloudStatus(true,'ONLINE');
+}
+
+
+
+const KEY='mabflex_inventario_v4';
+const DEFAULT={materials:[],options:{modelos:[],tipoAdesivo:[],tipoFilme:[]},entries:[],history:[],adjustments:[]};const ADESIVO_TIPOS_MODELOS={
+  'Metalizado Acrílico':['ADC210','PPMP50-PA1','PPTC-GLOSS SILVER EXT50/AP901'],
+  'Transparente Acrílico':['ADC220','PPTC8-GLOSS CLEAR 50/AP90-WG55','TECFILM BOPP TRANSPARENTE BRILHO TA1'],
+  'Transparente Borracha':['ADC5240'],
+  'Metalizado Borracha':['ADC3000','ADC6000','S2055','PPMP50-PAH'],
+  'Couche Borracha':['ADC5240','ADC6000','S2045','TECGLOSS COUCHE TH1','COATED MC 80 FSC-FH05'],
+  'Couche Acrílico':['ADC200','ADC1000','S0518 LIGHT','TECGLOSS COUCHE TA1'],
+  'Fosco Borracha':['ADC5240','ADC3000','ADC6000','C2075','S2045','DFAM430','PPDL54 PAH','PPDL54 P6H','TECFILM BOPP BCO FOSCO TH1','TECFILM BOPP BCO FOSCO TH2','TECFILM BOPP BCO FOSCO TH3'],
+  'Branco Brilho Acrílico':['ADC210','PPBB60-PA1','TECFILM BOPP BRANCO BRILHO TA1'],
+  'Fosco Acrílico':['ADC210','S0290','TECMAX BOPP BCO FOSCO TA1'],
+  'Branco Brilho Borracha':['ADC5240','ADC6000','PPBB60-PAH']
+};
+const ADESIVO_TIPOS=Object.keys(ADESIVO_TIPOS_MODELOS);
+function adesivoModelos(tipo){return ADESIVO_TIPOS_MODELOS[tipo]||[]}
+
+let state=load(),material=null,session=[];
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);function load(){try{let x=JSON.parse(localStorage.getItem(KEY));if(x&&Array.isArray(x.materials)&&x.options){x.entries??=[];x.history??=[];x.adjustments??=[];return x}}catch{}return structuredClone(DEFAULT)}function save(){saveLocalOnly()}function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function num(v){return Number(String(v??'').replace(',','.'))||0}function fmt(n){return Number(n||0).toLocaleString('pt-BR',{maximumFractionDigits:2})}function toast(t){let x=$('#toast');x.textContent=t;x.classList.add('show');clearTimeout(window.__t);window.__t=setTimeout(()=>x.classList.remove('show'),1700)}
+function show(id){$$('.view').forEach(v=>v.classList.remove('active'));$('#'+id).classList.add('active');if(id==='inventory')renderInventory();if(id==='balance')renderBalance();if(id==='history')renderHistory();if(id==='home')renderHome();scrollTo(0,0)}
+function opt(id,label,arr,required=true){return `<div class="field"><label>${label}</label><div class="select-add"><select id="f_${id}">${required?'':'<option value="">Selecione...</option>'}${arr.map(x=>`<option>${esc(x)}</option>`).join('')}</select><button type="button" class="add-inline" data-add-option="${id}" title="Criar novo">＋</button></div></div>`}function input(id,label,type='text',wide=false,placeholder=''){return `<div class="field ${wide?'wide':''}"><label>${label}</label><input id="f_${id}" type="${type}" ${type==='number'?'inputmode="decimal" min="0" step="any" enterkeyhint="done" autocomplete="off"':''} placeholder="${esc(placeholder)}"></div>`}
+function materialTabs(){let h=state.materials.map((m,i)=>`<button class="tab ${i===0?'active':''}" data-mtab="${m.id}">${esc(m.name)}</button>`).join('');h+=`<button class="tab-add" id="newTab">＋ Nova aba</button>`;$('#materialTabs').innerHTML=h;$$('[data-mtab]').forEach(b=>b.onclick=()=>openMaterial(b.dataset.mtab));$('#newTab').onclick=()=>openManage()}
+function renderHome(){materialTabs();$('#materialGrid').innerHTML=state.materials.map((m,i)=>{const zero=!materialHasSaldo(m);return `<div class="mat ${i===0?'primary':''}" data-open="${m.id}"><span class="dot"></span><b>${esc(m.name)}</b><small>${esc(m.category)}</small>${zero?`<button class="mat-delete" data-delhome="${esc(m.id)}" title="Excluir material">×</button>`:''}</div>`}).join('');$$('[data-open]').forEach(b=>b.onclick=()=>openMaterial(b.dataset.open));$$('[data-delhome]').forEach(b=>b.onclick=e=>{e.stopPropagation();deleteMaterialById(b.dataset.delhome)})}
+function deleteMaterialById(id){const m=state.materials.find(x=>x.id===id);if(!m)return;if(materialHasSaldo(m))return toast(`Não pode excluir ${m.name}: ainda existe saldo.`);if(!confirm(`Excluir o material \"${m.name}\"?\nIsso removerá também as contagens dele. Essa ação não pode ser desfeita.`))return;state.materials=state.materials.filter(x=>x.id!==m.id);state.entries=state.entries.filter(e=>e.materialId!==m.id);state.history=state.history.filter(e=>e.materialId!==m.id);state.adjustments=(state.adjustments||[]).filter(a=>{try{const k=JSON.parse(a.key||'[]');return k[0]!==m.name}catch{return true}});save();cloudCatalogOp({id:'op_'+Date.now()+'_'+Math.random().toString(36).slice(2),type:'delete_material',materialId:m.id});if(material?.id===m.id)material=null;renderManage();renderHome();renderBalance();toast('Material excluído ✓')}
+function openMaterial(id){material=state.materials.find(x=>x.id===id);if(!material)return;session=[];$('#counterTitle').textContent=material.name;$('#local').value='Estoque Cima';renderForm();renderSession();show('counter');closeMobileKeyboard()}
+function fieldQty(labelText='Quantidade', units=['KG','METROS']){return `<div class="field"><label>${labelText}</label><div class="unitrow"><input id="f_qtd" type="number" inputmode="decimal" min="0" step="any" enterkeyhint="done" autocomplete="off"><select id="f_un">${units.map(u=>`<option>${esc(u)}</option>`).join('')}</select></div></div>`}
+const TUBETE_TYPES=['3 Polegadas','3 POL PAREDE 5','6 POL'];
+const DEFAULT_FIELDS_BY_CATEGORY={Filme:['tipo','largura','micra','qtd_kg'],Adesivo:['modelo','tipoAdesivo','largura','qtd_mtl'],Tubetes:['tipo','medida','qtd_un'],Ribbons:['modelo','largura','qtd_mtl'],Outro:['tipo','largura','qtd_kg'],Personalizado:['tipo','largura','qtd_un']};
+function materialFields(m){return Array.isArray(m?.fields)&&m.fields.length?m.fields:(DEFAULT_FIELDS_BY_CATEGORY[m?.category]||DEFAULT_FIELDS_BY_CATEGORY.Personalizado)}
+function materialTypes(m){if(!m)return [];if(m.category==='Adesivo')return Array.isArray(m.tipos)&&m.tipos.length?m.tipos:ADESIVO_TIPOS;return Array.isArray(m.tipos)&&m.tipos.length?m.tipos:(m.category==='Filme'?(state.options.tipoFilme||[]):[])}
+function qtyFields(fields){return fields.filter(x=>['qtd_kg','qtd_mtl','qtd_m2','qtd_un'].includes(x))}
+function unitFromQtyField(x){return x==='qtd_kg'?'KG':x==='qtd_mtl'?'METROS':x==='qtd_m2'?'M2':'UN'}
+
+function normalizeTubeteType(v){const n=norm(v||'').replace(/\s+/g,'');if(n==='3X3'||n==='33'||n==='3POLEGADAS'||n==='3POL')return '3 Polegadas';if(n==='3X5'||n==='35'||n.includes('3POLEGADASPAREDE5')||n.includes('3POLPAREDE5'))return '3 POL PAREDE 5';if(n==='6X6'||n==='66'||n==='6POLEGADAS'||n==='6POL')return '6 POL';return v||''}
+function tubeteSelect(){return `<div class="field"><label>Tipo</label><select id="f_tipo"><option value="">Selecione...</option>${TUBETE_TYPES.map(x=>`<option>${esc(x)}</option>`).join('')}</select></div>`}
+function renderForm(){
+  if(!material)return;
+  const f=materialFields(material),has=x=>f.includes(x);
+  let h='<div class="form-grid">';
+  if(material.category==='Adesivo'){
+    const tipos=Array.isArray(material.tipos)&&material.tipos.length?material.tipos:ADESIVO_TIPOS;
+    const atual=tipos.includes(v('tipo'))?v('tipo'):'';
+    h+=opt('tipo','Tipo de adesivo',tipos,false);
+    const modelos=adesivoModelos(atual);
+    h+=opt('modelo','Modelo / código',modelos,false);
+  }else{
+    if(has('tipo')){let ts=materialTypes(material);h+=ts.length?opt('tipo','Tipo',ts,false):input('tipo','Tipo','text',false,'Digite o tipo')}
+    if(has('modelo'))h+=opt('modelo','Modelo',state.options.modelos,false);
+    if(has('tipoAdesivo'))h+=opt('tipoAdesivo','Material',state.options.tipoAdesivo,false);
+  }
+  if(has('largura'))h+=input('largura','Largura (mm)','number');
+  if(has('medida'))h+=input('medida','Medida (mm)','number');
+  if(has('diametro'))h+=input('diametro','Diâmetro','number');
+  if(has('micra'))h+=input('micra','Micra / gramas','number');
+  let qf=qtyFields(f);if(qf.length)h+=fieldQty('Quantidade',qf.map(unitFromQtyField));
+  h+='</div>';$('#dynamicForm').innerHTML=h;bindInlineOptions();
+  if(material.category==='Adesivo'){
+    $('#f_tipo')?.addEventListener('change',()=>{const tipo=v('tipo');const sel=$('#f_modelo');if(sel){sel.innerHTML='<option value="">Selecione...</option>'+adesivoModelos(tipo).map(x=>`<option>${esc(x)}</option>`).join('')} });
+  }
+}
+function v(n){return ($('#f_'+n)?.value||'').trim()}function currentUserLabel(){return cloudUser?.email||'local'}function baseEntry(){return{id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),materialId:material.id,material:material.name,category:material.category,local:$('#local').value,date:new Date().toISOString(),usuario:currentUserLabel()}}
+function closeMobileKeyboard(){const el=document.activeElement;if(el&&typeof el.blur==='function')el.blur();setTimeout(()=>{if(document.activeElement&&typeof document.activeElement.blur==='function')document.activeElement.blur()},0)}
+function resetEntryQuantity(){if($('#f_qtd'))$('#f_qtd').value='';if($('#f_metros'))$('#f_metros').value='';if($('#f_medida')&&material?.category==='Tubetes')$('#f_qtd').value='';if($('#f_metros')&&material?.category==='Ribbons')$('#f_metros').value='';}
+function add(){let e=baseEntry(),f=materialFields(material),has=x=>f.includes(x),qf=qtyFields(f);if(material.category==='Tubetes'){const tt=normalizeTubeteType(v('tipo'));if(!TUBETE_TYPES.includes(tt)||!v('medida')||num(v('qtd'))<=0)return toast('Selecione o tipo, informe a medida e a quantidade.');Object.assign(e,{tipo:tt,medida:num(v('medida')),qtd:num(v('qtd')),un:'UN'})}else{if(has('tipo')&&!v('tipo'))return toast('Preencha o tipo.');if(has('modelo')&&!v('modelo'))return toast('Preencha o modelo.');if(has('tipoAdesivo')&&material.category!=='Adesivo'&&!v('tipoAdesivo'))return toast('Preencha o material.');if(has('largura')&&!v('largura'))return toast('Preencha a largura.');if(has('medida')&&!v('medida'))return toast('Preencha a medida.');if(has('diametro')&&!v('diametro'))return toast('Preencha o diâmetro.');if(has('micra')&&!v('micra'))return toast('Preencha a micra/gramatura.');let qty=qf.length?num(v('qtd')):0;if(qf.length&&qty<=0)return toast('Informe a quantidade.');Object.assign(e,{tipo:has('tipo')?v('tipo'):'',modelo:has('modelo')?v('modelo'):'',tipoAdesivo:has('tipoAdesivo')?(v('tipoAdesivo')||(material.category==='Adesivo'?v('tipo'):'')):(material.category==='Adesivo'?v('tipo'):''),largura:has('largura')?num(v('largura')):0,medida:has('medida')?num(v('medida')):0,diametro:has('diametro')?num(v('diametro')):0,micra:has('micra')?num(v('micra')):0,qtd:qty,un:qf.length?($('#f_un')?.value||unitFromQtyField(qf[0])):'UN'});if(material.category==='Adesivo')e.un='METROS';}state.entries.push(e);state.history.unshift(e);session.push(e);save();cloudAppendEntry(e);renderSession();toast('Contagem adicionada ✓');closeMobileKeyboard();resetEntryQuantity()}
+function label(e){normalizeDisplayEntry(e);if(e.category==='Adesivo')return `${e.tipoAdesivo||e.tipo||''} · ${e.modelo||''} · ${e.largura} mm`;if(e.category==='Filme')return `${e.tipo} · ${e.largura} mm · ${e.micra} ${pearl(e)?'gramas':'micras'}`;if(e.category==='Tubetes')return `${e.tipo} · ${e.medida} mm`;if(e.category==='Ribbons')return `${e.modelo} · ${e.largura} mm`;return `${e.tipo||e.material} · ${e.largura||''} ${e.micra?e.micra+' micras':''}`}
+function renderSession(){let groups={};session.forEach(e=>{let k=label(e)+'|'+e.un;groups[k]=(groups[k]||0)+e.qtd});$('#launchCount').textContent=session.length;$('#sessionTotal').textContent=fmt(Object.values(groups).reduce((a,b)=>a+b,0));$('#sessionRows').classList.toggle('empty',!session.length);$('#sessionRows').innerHTML=session.length?Object.entries(groups).map(([k,q])=>{let[a,u]=k.split('|');return `<div class="row"><div class="row-main"><b>${esc(a)}</b><small>${esc(material.name)} · ${esc($('#local').value)}</small></div><div class="row-val">${fmt(q)} <small>${u}</small></div></div>`}).join(''):'Nenhuma contagem ainda.';let last=session.at(-1);if(last){$('#lastAdded').style.display='block';$('#lastAdded').innerHTML=`✓ ${esc(label(last))} — <b>${fmt(last.qtd)} ${last.un}</b>`}}
+function focusQty(){let x=$('#f_qtd');if(x){x.focus();x.select()}}
+function keyNum(v){let n=Number(String(v??'').replace(',','.'));return v===''||v===null||v===undefined||!Number.isFinite(n)||n===0?'':n}
+function balanceKey(e){return JSON.stringify([e.material||'',e.category||'',e.tipo||'',e.modelo||'',keyNum(e.largura),keyNum(e.micra),keyNum(e.medida),e.un||''])}
+function legacyBalanceKey(e){return JSON.stringify([e.material,e.category,e.tipo||'',e.modelo||'',e.largura||'',e.micra||'',e.medida||'',e.un])}
+function adjustmentForGroup(a,e){let k=a?.key||'';return k===balanceKey(e)||k===legacyBalanceKey(e)}
+function balanceLabel(e){normalizeDisplayEntry(e);if(e.category==='Adesivo')return `${e.tipoAdesivo||e.tipo||''} · ${e.modelo||''} · ${e.largura} mm`;if(e.category==='Filme')return `${e.tipo} · ${e.largura} mm · ${e.micra} ${pearl(e)?'gramas':'micras'}`;if(e.category==='Tubetes')return `${e.tipo} · ${e.medida} mm`;if(e.category==='Ribbons')return `${e.modelo} · ${e.largura} mm`;return `${e.tipo||e.material} · ${e.largura||''}${e.micra?' · '+e.micra+' micras':''}`}
+function balanceGroups(){let groups={};state.entries.forEach(e=>{let k=balanceKey(e);if(!groups[k])groups[k]={e:{...e},Cima:0,Baixo:0};if(e.local==='Estoque Cima')groups[k].Cima+=num(e.qtd);if(e.local==='Estoque Baixo')groups[k].Baixo+=num(e.qtd)});(state.adjustments||[]).forEach(a=>{let g=groups[a.key]||(Object.values(groups).find(x=>adjustmentForGroup(a,x.e)));if(!g)return;g[a.local==='Estoque Baixo'?'Baixo':'Cima']+=num(a.delta)});return Object.values(groups).filter(g=>Math.abs(num(g.Cima))+Math.abs(num(g.Baixo))>0.000001)}
+let expandedBalance='';
+function renderBalance(){state=normalizeState(state);state.entries.forEach(normalizeDisplayEntry);state.history.forEach(normalizeDisplayEntry);let q=($('#balanceSearch').value||'').toLowerCase(),ft=$('#balanceTipo').value,fmi=$('#balanceMicra').value,fl=$('#balanceLocal').value;let groups=balanceGroups().filter(g=>{let e=g.e,tipos=[e.tipo,e.modelo,e.material].filter(Boolean).map(String);let txt=JSON.stringify(e).toLowerCase();let stock=fl==='Estoque Cima'?g.Cima:fl==='Estoque Baixo'?g.Baixo:g.Cima+g.Baixo;return(!ft||tipos.includes(ft))&&(!fmi||String(e.micra||'')===fmi)&&(!fl||stock>0)&&txt.includes(q)});let rows=groups.map(g=>{let e=g.e,key=balanceKey(e),total=g.Cima+g.Baixo,visible=fl==='Estoque Cima'?g.Cima:fl==='Estoque Baixo'?g.Baixo:total;return `<div class="balance-row ${expandedBalance===key?'open':''}" data-balance-key="${esc(key)}"><div class="balance-main" data-expand="${esc(key)}"><div><b>${esc(balanceLabel(e))}</b><small>${esc(e.material)}${e.un==='KG'?' · KG':e.un==='METROS'?' · M':''}</small></div><div class="balance-total">${fmt(visible)} <small>${esc(e.un)}</small><span class="balance-arrow">⌄</span></div></div><div class="balance-details"><div class="balance-location"><span>ESTOQUE CIMA</span><div class="balance-value">${fmt(g.Cima)} <small>${esc(e.un)}</small></div><div class="balance-actions"><button class="minus" data-adjust="-" data-local="Estoque Cima" data-key="${esc(key)}">−</button><button class="plus" data-adjust="+" data-local="Estoque Cima" data-key="${esc(key)}">+</button></div></div><div class="balance-location"><span>ESTOQUE BAIXO</span><div class="balance-value">${fmt(g.Baixo)} <small>${esc(e.un)}</small></div><div class="balance-actions"><button class="minus" data-adjust="-" data-local="Estoque Baixo" data-key="${esc(key)}">−</button><button class="plus" data-adjust="+" data-local="Estoque Baixo" data-key="${esc(key)}">+</button></div></div></div></div>`}).join('');$('#balanceTable').innerHTML=groups.length?`<div class="balance-list">${rows}</div>`:'<div class="balance-empty">Nenhum saldo encontrado.</div>';let tipos=[...new Set(balanceGroups().flatMap(g=>[g.e.tipo,g.e.modelo,g.e.material]).filter(Boolean).map(String))].sort((a,b)=>a.localeCompare(b,'pt-BR'));let micras=[...new Set(balanceGroups().map(g=>g.e.micra).filter(x=>x!==undefined&&x!==''))].sort((a,b)=>Number(a)-Number(b));$('#balanceTipo').innerHTML='<option value="">Todos os tipos</option>'+tipos.map(x=>`<option>${esc(x)}</option>`).join('');$('#balanceMicra').innerHTML='<option value="">Todas as micras / gramas</option>'+micras.map(x=>`<option value="${esc(x)}">${esc(x)} micras / gramas</option>`).join('');if(ft)$('#balanceTipo').value=ft;if(fmi)$('#balanceMicra').value=fmi;$$('[data-expand]').forEach(b=>b.onclick=()=>{expandedBalance=expandedBalance===b.dataset.expand?'':b.dataset.expand;renderBalance()});$$('[data-adjust]').forEach(b=>b.onclick=e=>{e.stopPropagation();openAdjust(b.dataset.key,b.dataset.adjust,b.dataset.local)})}
+let pendingAdjust=null;
+function openAdjust(key,op,local){let e=JSON.parse(key),groups=balanceGroups(),g=groups.find(x=>balanceKey(x.e)===key||legacyBalanceKey(x.e)===key);pendingAdjust={key,op,local,e,g};$('#adjustTitle').textContent=op==='+'?'Adicionar saldo':'Diminuir saldo';$('#adjustCurrent').textContent=`${balanceLabel(e)} · ${local} · atual ${fmt(g?.[local==='Estoque Baixo'?'Baixo':'Cima']||0)} ${e.un}`;$('#adjustInput').value='';$('#adjustModal').classList.add('open');closeMobileKeyboard()}
+function closeAdjust(){$('#adjustModal').classList.remove('open');pendingAdjust=null}
+async function confirmAdjust(){
+  if(!pendingAdjust)return;
+  let amount=num($('#adjustInput').value); if(amount<=0)return $('#adjustInput').focus();
+  let side=pendingAdjust.local==='Estoque Baixo'?'Baixo':'Cima',g=pendingAdjust.g,current=g?.[side]||0;
+  if(pendingAdjust.op==='-'&&amount>current)return toast('Saldo insuficiente.');
+  let delta=pendingAdjust.op==='+'?amount:-amount;
+  let a={id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),key:pendingAdjust.key,local:pendingAdjust.local,delta,date:new Date().toISOString(),usuario:currentUserLabel()};
+  closeAdjust();
+  if(cloudOnline){
+    toast('Salvando...');
+    let result=await cloudAdjustment(a);
+    if(result?.dados){applyCloudState(result,true);renderBalance();toast('Saldo atualizado ✓');}
+    else if(result?.__error){renderBalance();toast(result.offline?'Sem conexão — ajuste ficou pendente.':'O banco recusou o ajuste.');}
+    else { queueOp({id:a.id,type:'adjust',adjust:a}); state.adjustments??=[]; state.adjustments.unshift(a); save(); renderBalance(); toast('Sem conexão — ajuste pendente'); }
+  }else{
+    state.adjustments??=[]; state.adjustments.unshift(a); save(); queueOp({id:a.id,type:'adjust',adjust:a}); renderBalance(); toast('Sem conexão — ajuste pendente');
+  }
+}
+function renderInventory(){state=normalizeState(state);state.entries.forEach(normalizeDisplayEntry);state.history.forEach(normalizeDisplayEntry);let q=($('#search').value||'').toLowerCase(),fm=$('#filterMat').value,fl=$('#filterLocal').value;let groups=balanceGroups().filter(g=>{let e=g.e,txt=JSON.stringify(e).toLowerCase(),total=g.Cima+g.Baixo;let localQty=fl==='Estoque Cima'?g.Cima:fl==='Estoque Baixo'?g.Baixo:total;return(!fm||e.material===fm)&&(!fl||localQty>0)&&txt.includes(q)});let rows=groups.map(g=>{let e=g.e,total=g.Cima+g.Baixo;let cima=fl==='Estoque Cima'?g.Cima:g.Cima,baixo=fl==='Estoque Baixo'?0:g.Baixo,visible=fl==='Estoque Cima'?cima:fl==='Estoque Baixo'?g.Baixo:total;return `<tr><td><strong>${esc(e.material)}</strong></td><td>${esc(e.category)}</td><td>${fl?esc(fl):'Cima + Baixo'}</td><td>${esc(e.tipo||'')}</td><td>${esc(e.modelo||'')}</td><td>${esc(e.largura||'')}</td><td>${esc(e.micra||'')}</td><td>${esc(e.medida||'')}</td><td><strong>${fmt(visible)}</strong> ${esc(e.un)}</td></tr>`}).join('');$('#stats').innerHTML=`<div class="stat"><b>${groups.length}</b><span>DIVISÕES</span></div><div class="stat"><b>${new Set(groups.map(g=>g.e.material)).size}</b><span>MATERIAIS</span></div><div class="stat"><b>${fmt(groups.reduce((a,g)=>a+(fl==='Estoque Cima'?g.Cima:fl==='Estoque Baixo'?g.Baixo:g.Cima+g.Baixo),0))}</b><span>SALDO TOTAL</span></div><div class="stat"><b>${groups.filter(g=>g.Cima>0).length}</b><span>COM SALDO NO CIMA</span></div>`;$('#inventoryTable').innerHTML=rows?`<div class="table-wrap"><table class="table"><thead><tr><th>Material</th><th>Categoria</th><th>Local</th><th>Tipo</th><th>Modelo</th><th>Largura</th><th>Micra</th><th>Medida</th><th>Total</th></tr></thead><tbody>${rows}</tbody></table></div>`:`<div class="emptybox">Nenhuma contagem encontrada.</div>`;let mats=[...new Set(state.entries.map(e=>e.material))],locs=[...new Set(state.entries.map(e=>e.local))];$('#filterMat').innerHTML='<option value="">Todos os materiais</option>'+mats.map(x=>`<option>${esc(x)}</option>`).join('');$('#filterLocal').innerHTML='<option value="">Todos os locais</option>'+locs.map(x=>`<option>${esc(x)}</option>`).join('');if(fm)$('#filterMat').value=fm;if(fl)$('#filterLocal').value=fl}
+function renderHistory(){let launches=state.history.map(e=>({kind:'contagem',date:e.date,label:label(e),value:fmt(e.qtd)+' '+(e.un||''),meta:(e.material||'')+' · '+(e.local||'')+' · '+(e.usuario||'local')}));let adjusts=(state.adjustments||[]).map(a=>{let e;try{e=JSON.parse(a.key)}catch{e={}};let delta=num(a.delta),sign=delta>=0?'+':'';return{kind:'ajuste',date:a.date,label:balanceLabel(e),value:sign+fmt(delta)+' '+(e.un||''),meta:(e.material||'')+' · '+(a.local||'')+' · '+(a.usuario||'local')}});let arr=[...launches,...adjusts].sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,250);$('#historyList').innerHTML=arr.length?arr.map(e=>`<div class="history-item"><div class="hi"><b>${esc(e.label)}</b><b>${esc(e.value)}</b></div><small>${esc(e.meta)} · ${new Date(e.date).toLocaleString('pt-BR')}</small></div>`).join(''):'<div class="emptybox">Nenhuma movimentação ainda.</div>'}
+function htmlEsc(s){return String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;')}
+function exportReport(){let groups=balanceGroups();if(!groups.length)return toast('Não há dados para exportar.');let byMat={};groups.forEach(g=>(byMat[g.e.material]??=[]).push(g));let sheets='';for(let [mat,arr] of Object.entries(byMat)){sheets+=`<h2>${htmlEsc(mat)}</h2><table><tr><th>Divisão</th><th>Estoque Cima</th><th>Estoque Baixo</th><th>Total</th><th>Unidade</th></tr>${arr.map(g=>`<tr><td>${htmlEsc(balanceLabel(g.e))}</td><td>${fmt(g.Cima)}</td><td>${fmt(g.Baixo)}</td><td>${fmt(g.Cima+g.Baixo)}</td><td>${htmlEsc(g.e.un)}</td></tr>`).join('')}</table>`}let html=`<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png"><style>body{font-family:Arial}h1{background:#111;color:#fff;padding:12px}h2{background:#e31b23;color:#fff;padding:8px;margin-top:22px}table{border-collapse:collapse;margin-bottom:20px}th,td{border:1px solid #bbb;padding:7px}th{background:#ddd}</style></head><body><h1>MABFLEX — SALDOS</h1><p>Gerado em ${new Date().toLocaleString('pt-BR')}</p>${sheets}
+
+</body></html>`;download('MABFLEX_SALDOS_'+dateFile()+'.xls',html,'application/vnd.ms-excel;charset=utf-8');toast('Planilha de saldos gerada ✓')}
+function exportImport(){let groups=balanceGroups();if(!groups.length)return toast('Não há dados para exportar.');let cols=['MATERIAL','CATEGORIA','TIPO','MODELO','LARGURA_MM','MICRA','MEDIDA_MM','ESTOQUE_CIMA','ESTOQUE_BAIXO','TOTAL','UNIDADE'];let q=x=>'"'+String(x??'').replaceAll('"','""')+'"';let lines=[cols.map(q).join(';'),...groups.map(g=>{let e=g.e;return [e.material,e.category,e.tipo||'',e.modelo||'',e.largura||'',e.micra||'',e.medida||'',g.Cima,g.Baixo,g.Cima+g.Baixo,e.un].map(q).join(';')})];download('MABFLEX_IMPORTACAO_SALDOS_'+dateFile()+'.csv','\ufeff'+lines.join('\n'),'text/csv;charset=utf-8');toast('Arquivo de importação gerado ✓')}
+function dateFile(){return new Date().toISOString().slice(0,10)}function download(name,text,type){let blob=new Blob([text],{type}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),500)}function backup(){download('MABFLEX_BACKUP_'+dateFile()+'.json',JSON.stringify(state,null,2),'application/json');toast('Backup salvo ✓')}function restore(file){let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!Array.isArray(x.materials)||!x.options||!Array.isArray(x.entries))throw 0;state=x;save();renderHome();toast('Backup restaurado ✓')}catch{toast('Backup inválido')}};r.readAsText(file)}
+function openManage(){renderManage();$('#manageModal').classList.add('open')}function closeManage(){$('#manageModal').classList.remove('open');renderHome()}function materialHasSaldo(m){
+  return balanceGroups().some(g=>{const e=g.e;return (e.materialId===m.id || e.material===m.name || e.material===m.id) && (num(g.Cima)+num(g.Baixo)>0)});
+}
+function renderManage(){
+  $('#materialList').innerHTML=state.materials.map(m=>`<div class="listitem"><span><b>${esc(m.name)}</b> · ${esc(m.category)} · ${materialFields(m).join(', ')}</span><button data-delmat="${esc(m.id)}">EXCLUIR</button></div>`).join('')||'<div class="empty">Nenhuma aba cadastrada.</div>';
+  $$('[data-delmat]').forEach(b=>b.onclick=()=>deleteMaterialById(b.dataset.delmat));
+  const sel=$('#tipoMaterialAba');if(sel){sel.innerHTML=state.materials.map(m=>`<option value="${esc(m.id)}">${esc(m.name)}</option>`).join('');if(state.materials.length){if(!state.materials.some(m=>m.id===sel.value))sel.value=state.materials[0].id;renderMaterialTypesList()}}
+  let o=[];Object.entries(state.options).forEach(([k,a])=>a.forEach(x=>o.push(`<div class="listitem"><span>${esc(k)}: <b>${esc(x)}</b></span><button data-delopt="${esc(k)}|${esc(x)}">EXCLUIR</button></div>`)));
+  $('#optionsList').innerHTML=o.join('')||'<div class="empty">Nenhuma opção cadastrada.</div>';
+  $$('[data-delopt]').forEach(b=>b.onclick=()=>{let[k,x]=b.dataset.delopt.split('|');state.options[k]=state.options[k].filter(v=>v!==x);save();cloudCatalogOp({id:'op_'+Date.now()+'_'+Math.random().toString(36).slice(2),type:'delete_option',list:k,value:x});renderManage()});
+}
+function renderMaterialTypesList(){const id=$('#tipoMaterialAba')?.value,m=state.materials.find(x=>x.id===id);if(!m||!$('#materialTiposList'))return;const ts=Array.isArray(m.tipos)?m.tipos:[];$('#materialTiposList').innerHTML=ts.length?ts.map(x=>`<div class="listitem"><span>${esc(x)}</span><button data-delmtipo="${esc(x)}">EXCLUIR</button></div>`).join(''):'<div class="empty">Nenhum tipo cadastrado nesta aba.</div>';$$('[data-delmtipo]').forEach(b=>b.onclick=()=>{m.tipos=(m.tipos||[]).filter(x=>norm(x)!==norm(b.dataset.delmtipo));save();cloudCatalogOp({id:'op_'+Date.now()+'_'+Math.random().toString(36).slice(2),type:'edit_material',material:m});renderManage();if(material?.id===m.id)renderForm()})}
+$('#createMaterial').onclick=async()=>{let name=$('#newMaterialName').value.trim(),category=$('#newMaterialCategory').value,fields=[...document.querySelectorAll('.new-field:checked')].map(x=>x.value);if(!name)return toast('Digite o nome da aba.');if(!fields.length)return toast('Selecione pelo menos uma característica.');if(state.materials.some(m=>m.name.toLowerCase()===name.toLowerCase()))return toast('Essa aba já existe.');const mat={id:'m_'+Date.now()+'_'+Math.random().toString(36).slice(2),name,category,fields,tipos:category==='Adesivo'?ADESIVO_TIPOS.slice():[]};state.materials.push(mat);save();const r=await cloudCatalogOp({id:'op_'+Date.now()+'_'+Math.random().toString(36).slice(2),type:'create_material',material:mat});if(r?.__error)toast('Aba criada só neste aparelho — banco não aceitou a operação.');else toast('Aba criada e sincronizada ✓');$('#newMaterialName').value='';document.querySelectorAll('.new-field').forEach(x=>x.checked=false);renderManage();renderHome()};
+$('#createMaterialTipo').onclick=async()=>{const id=$('#tipoMaterialAba')?.value,name=$('#newMaterialTipo').value.trim(),m=state.materials.find(x=>x.id===id);if(!m||!name)return toast('Selecione a aba e informe o tipo.');m.tipos=Array.isArray(m.tipos)?m.tipos:[];let v=norm(name)==='metal'?'Metalizado':name;if(!m.tipos.some(x=>norm(x)===norm(v)))m.tipos.push(v);save();const rr=await cloudCatalogOp({id:'op_'+Date.now()+'_'+Math.random().toString(36).slice(2),type:'edit_material',material:m});$('#newMaterialTipo').value='';renderManage();if(material?.id===m.id)renderForm();toast(rr?.__error&&!rr.offline?'Banco recusou o tipo.':'Tipo adicionado à aba ✓')};
+$('#tipoMaterialAba').onchange=renderMaterialTypesList;
+$('#createOption').onclick=()=>{let name=$('#newOptionName').value.trim(),type=$('#optionType').value;if(type==='tipoFilme'&&norm(name)==='metal')name='Metalizado';if(!name)return toast('Digite o nome da opção.');if(!state.options[type].some(x=>x.toLowerCase()===name.toLowerCase()))state.options[type].push(name);save();cloudCatalogOp({id:'op_'+Date.now()+'_'+Math.random().toString(36).slice(2),type:'create_option',list:type,value:name});$('#newOptionName').value='';renderManage();toast('Opção adicionada ✓')};
+let pendingOption=null;
+function openNameModal(key,list){pendingOption={key,list};let titles={modelo:'Novo modelo',tipoAdesivo:'Novo material',tipoFilme:'Novo tipo de filme'};$('#nameModalTitle').textContent=titles[key]||'Adicionar';$('#nameModalLabel').textContent='Nome';$('#nameModalInput').value='';$('#nameModal').classList.add('open');setTimeout(()=>$('#nameModalInput').focus(),60)}
+function closeNameModal(){$('#nameModal').classList.remove('open');pendingOption=null}
+function confirmNameModal(){if(!pendingOption)return;let name=$('#nameModalInput').value.trim();if(!name){$('#nameModalInput').focus();return}let {key,list}=pendingOption;if(list==='tipoFilme'&&norm(name)==='metal')name='Metalizado';if(state.options[list].some(x=>x.toLowerCase()===name.toLowerCase())){toast('Essa opção já existe.');return}state.options[list].push(name);save();cloudCatalogOp({id:'op_'+Date.now()+'_'+Math.random().toString(36).slice(2),type:'create_option',list,value:name});closeNameModal();renderForm();let sel=$('#f_'+key);if(sel)sel.value=name;toast('Adicionado ✓')}
+function bindInlineOptions(){
+$$('[data-add-option]').forEach(b=>b.onclick=()=>{let key=b.dataset.addOption;let map={modelo:'modelos',tipoAdesivo:'tipoAdesivo',tipoFilme:'tipoFilme'};let list=map[key];if(list)openNameModal(key,list)});}
+$('#nameModalCancel').onclick=closeNameModal;$('#nameModalOk').onclick=confirmNameModal;$('#nameModalInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();confirmNameModal()}if(e.key==='Escape'){closeNameModal()}});$('#nameModal').addEventListener('click',e=>{if(e.target.id==='nameModal')closeNameModal()});$('#manageBtn').onclick=openManage;$('#cloudStatus').onclick=()=>{if(cloudUser)doLogout();else openLogin()};$('#loginOk').onclick=doLogin;$('#loginLocal').onclick=closeLogin;$('#loginPassword').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});$('#loginModal').addEventListener('click',e=>{if(e.target.id==='loginModal')closeLogin()});$('#manageBtn').onclick=openManage;$('#closeManage').onclick=closeManage;$('#inventoryBtn').onclick=()=>show('inventory');$('#identifyBtn').onclick=()=>{show('identification');renderIdentification();};$('#balanceBtn').onclick=()=>show('balance');$('#historyBtn').onclick=()=>show('history');$('#exportsBtn').onclick=()=>show('exports');$('#exportBtn2').onclick=exportReport;$('#exportReport').onclick=exportReport;$('#backupBtn').onclick=backup;$('#restoreBtn').onclick=()=>$('#restoreFile').click();$('#restoreFile').onchange=e=>{if(e.target.files[0])restore(e.target.files[0]);e.target.value=''};$('#addBtn').onclick=add;$('#clearForm').onclick=()=>{renderForm();closeMobileKeyboard();toast('Campos limpos ✓')};$('#local').onchange=renderSession;$('#search').oninput=renderInventory;$('#filterMat').onchange=renderInventory;$('#filterLocal').onchange=renderInventory;$('#balanceSearch').oninput=renderBalance;$('#balanceTipo').onchange=renderBalance;$('#balanceMicra').onchange=renderBalance;$('#balanceLocal').onchange=renderBalance;$('#adjustCancel').onclick=closeAdjust;$('#adjustOk').onclick=confirmAdjust;$('#adjustInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();confirmAdjust()}if(e.key==='Escape')closeAdjust()});$('#adjustModal').addEventListener('click',e=>{if(e.target.id==='adjustModal')closeAdjust()});$$('[data-back]').forEach(b=>b.onclick=()=>show('home'));$$('[data-adjust-quick]').forEach(b=>b.onclick=()=>{let n=num($('#adjustInput').value),q=num(b.dataset.adjustQuick);$('#adjustInput').value=String(n+q);});document.addEventListener('keydown',e=>{if(e.key==='Enter'&&$('#counter').classList.contains('active')&&document.activeElement.tagName==='INPUT'){e.preventDefault();add()}});renderHome();
+cloudInit();
+</script>
+<script>
+/* V55 — identificação automática reforçada e exportação M2 segura. */
+if(typeof state==='undefined' && typeof DEFAULT!=='undefined') state=normalizeState(DEFAULT);
+if(typeof normalizeState==='function') state=normalizeState(state);
+function norm(s){return String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}
+function nums(s){return (String(s??'').match(/\d+(?:[\.,]\d+)?/g)||[]).map(x=>Number(x.replace(',','.'))).filter(Number.isFinite)}
+function unitNorm(s){return norm(s).replace(/\bmicras?\b/g,'micra').replace(/\bgramas?\b/g,'grama').toUpperCase()}
+function pearl(e){const t=norm([e?.tipo,e?.material,e?.modelo].filter(Boolean).join(' '));return t.includes('perola')||t.includes('pérola');}
+let MABFLEX_CAT_CACHE=null;
+function catalogUnit(c){return String(c?.unidade||c?.un||'').trim().toUpperCase()}
+function getCatalogCache(){
+  const raw0=Array.isArray(window.MABFLEX_CATALOGO_IQUATTRO)?window.MABFLEX_CATALOGO_IQUATTRO:[];
+  if(MABFLEX_CAT_CACHE && MABFLEX_CAT_CACHE.raw===raw0)return MABFLEX_CAT_CACHE.items;
+  const raw=raw0.filter(c=>catalogUnit(c)!=='KG');
+  MABFLEX_CAT_CACHE={raw:raw0,items:raw.map(c=>({c,text:norm([c.codigo,c.descricao,c.clienteFornecedor].filter(Boolean).join(' ')),desc:norm(c.descricao||''),unit:catalogUnit(c),width:Number(c.largura||0),nums:nums(c.descricao||''),thickness:catalogThickness(c),grams:catalogGramsM2(c)}))};
+  return MABFLEX_CAT_CACHE.items;
+}
+function identificationTargetUnit(e){
+  const cat=String(e?.category||'').toUpperCase();
+  if(cat==='FILME'||cat==='ADESIVO')return 'M2';
+  if(cat==='TUBETES'||cat==='RIBBONS')return 'UN';
+  return '';
+}
+function catalogThickness(c){
+  const d=norm(c?.descricao||'');
+  const m=d.match(/(\d+(?:[\.,]\d+)?)\s*MICRAS?/i); if(!m)return 0;
+  let v=Number(m[1].replace(',','.'));
+  if((d.includes('PEAD')||d.includes('PEBD')||d.includes('POLIETILENO'))&&v>0&&v<1)v*=1000;
+  return v;
+}
+function catalogGramsM2(c){
+  const d=norm(c?.descricao||'');
+  const m=d.match(/(\d+(?:[\.,]\d+)?)\s*GRAMAS?/i); return m?Number(m[1].replace(',','.')):0;
+}
+function catalogDensity(c){
+  const d=norm(c?.descricao||'');
+  if(d.includes('PET'))return 1.35;
+  if(d.includes('BOPP')&&d.includes('PEROLA'))return 0.73;
+  if(d.includes('BOPP')&&(d.includes('METAL')||d.includes('METALIZ')))return 0.912;
+  if(d.includes('BOPP')&&d.includes('MATE'))return 0.91;
+  if(d.includes('BOPP')&&d.includes('TRANSPARENTE'))return 0.905;
+  if(d.includes('PEAD')||d.includes('PEBD')||d.includes('POLIETILENO'))return 0.955;
+  return 0;
+}
+function pearlGramsM2(value,c){
+  const n=Number(value||0);
+  const known={17:23.2877,20:27.3973,30.137:30.137,35.6164:35.6164};
+  for(const k of Object.keys(known)) if(Math.abs(n-Number(k))<0.0001) return known[k];
+  const cg=catalogGramsM2(c);
+  if(cg>0)return cg;
+  return n>0?n:0;
+}
+function normalizedFilmThickness(e){
+  const v=Number(e?.micra||0); if(!(v>0))return 0;
+  const d=norm(e?.tipo||'')+' '+norm(e?.material||'');
+  if((d.includes('PEAD')||d.includes('PEBD')||d.includes('POLIETILENO'))&&v>=1)return v/1000;
+  return v;
+}
+function matchFilmThickness(e,c){
+  const raw=catalogThickness(c); if(!(raw>0))return 0;
+  const d=norm(c?.descricao||'');
+  // No cadastro do iQuattro, PEAD/PEBD aparece como 0.085, 0.095 etc.;
+  // o texto pode estar descrito como 85/95 micras. Para comparação, normalize
+  // os dois lados para a mesma unidade sem alterar o valor usado na fórmula.
+  if((d.includes('PEAD')||d.includes('PEBD')||d.includes('POLIETILENO')) && raw>=1)return raw/1000;
+  return raw;
+}
+function exactCatalogSignature(e,c){
+  const cat=String(e?.category||'').toUpperCase();
+  const width=Number(e?.largura||e?.medida||0), cw=Number(c?.largura||0);
+  if(cat==='FILME'){
+    const req=normalizedFilmThickness(e), got=matchFilmThickness(e,c);
+    const measure=pearl(e)?(Number(e?.micra||0)===Number(catalogGramsM2(c)||0)):(req>0&&got>0&&Math.abs(req-got)<=0.0001);
+    const typeOk=filmTypeCompatible(e,c?.descricao||'');
+    return width>0&&cw>0&&width===cw&&measure&&typeOk&&catalogUnit(c)==='M2';
+  }
+  if(cat==='TUBETES')return width>0&&cw>0&&width===cw&&tubeteTypeAliases(e,c?.descricao||'')&&catalogUnit(c)==='UN';
+  return false;
+}
+function conversionKgToM2(e,totalKg,c){
+  const kg=Number(totalKg||0); if(!(kg>0)||!c)return null;
+  const d=norm(c?.descricao||'');
+  let width=Number(e?.largura||e?.medida||c?.largura||0);
+  if(!(width>0)){
+    const wm=d.match(/(\d+(?:[\.,]\d+)?)\s*MM\b/i);
+    if(wm) width=Number(wm[1].replace(',','.'));
+  }
+  if(!(width>0))return null;
+
+  // PÉROLA: os valores 17/20/22/26 são GRAMAS, não micra.
+  // 26 -> 35,6164 g/m²; 22 -> 30,137; 20 -> 27,3973; 17 -> 23,2877.
+  if(d.includes('PEROLA') || pearl(e)){
+    const gM2=pearlGramsM2(e?.micra,c);
+    return gM2>0 ? (kg*1000/gM2) : null;
+  }
+
+  let thick=Number(e?.micra||0);
+  if(!(thick>0)) thick=catalogThickness(c);
+  // PEAD/PEBD: 0,085 = 85 micras; 0,095 = 95 micras.
+  if((d.includes('PEAD')||d.includes('PEBD')||d.includes('POLIETILENO')) && thick>0 && thick<1) thick*=1000;
+  const density=catalogDensity(c);
+  if(!(thick>0&&density>0))return null;
+
+  // FÓRMULA DA PLANILHA:
+  // gramas por metro quadrado = largura × espessura × peso específico / 1.000.000
+  // total em M² = KG / gramas por metro quadrado.
+  const pesoPorMetroQuadrado=width*thick*density/1000000;
+  if(!(pesoPorMetroQuadrado>0))return null;
+  return kg/pesoPorMetroQuadrado;
+}
+function conversionPreview(e,total,c){
+  if(!c)return '';
+  if(String(e?.un||'').toUpperCase()==='KG'&&catalogUnit(c)==='M2'){
+    const v=conversionKgToM2(e,total,c); return v==null?'':`Exportará ${fmt(v)} M²`;
+  }
+  return '';
+}
+function tubeteTypeAliases(e,desc){
+  const t=norm(e?.tipo||'').replace(/\s+/g,''); const d=norm(desc);
+  if(!d.includes('TUBETE'))return false;
+  if(t==='3X3'||t==='33')return d.includes('3 POLEGADAS')&&!d.includes('PAREDE 5MM');
+  if(t==='3X5'||t==='35')return d.includes('3 POLEGADAS PAREDE 5MM');
+  if(t==='6X6'||t==='66')return d.includes('6 POLEGADAS');
+  return false;
+}
+function filmTypeClass(value){
+  const s=norm(value||'');
+  if(s.includes('PEROLA'))return 'PEROLA';
+  if(s.includes('METAL'))return 'METAL';
+  if(s.includes('MATE'))return 'MATE';
+  if(s.includes('TRANSPARENTE'))return 'TRANSPARENTE';
+  return '';
+}
+function filmTypeCompatible(e,desc){
+  const requested=filmTypeClass([e?.tipo,e?.material,e?.modelo].filter(Boolean).join(' '));
+  if(!requested)return true;
+  const d=norm(desc||'');
+  // Regras fechadas: transparente comum nunca aceita mate, metalizado ou pérola.
+  if(requested==='TRANSPARENTE') return d.includes('TRANSPARENTE') && !d.includes('MATE') && !d.includes('METAL') && !d.includes('PEROLA');
+  if(requested==='MATE') return d.includes('TRANSPARENTE') && d.includes('MATE') && !d.includes('METAL') && !d.includes('PEROLA');
+  if(requested==='METAL') return d.includes('METAL') && !d.includes('PEROLA');
+  if(requested==='PEROLA') return d.includes('PEROLA');
+  return false;
+}
+function catalogSearchScore(e,c){
+  const desc=norm(c?.descricao||''); if(!desc||desc.includes('teste'))return -999;
+  const cat=String(e?.category||'').toUpperCase();
+  if(cat==='FILME'&&!filmTypeCompatible(e,desc))return -999;
+  const tipo=norm(e?.tipo||''),material=norm(e?.material||''),modelo=norm(e?.modelo||'');
+  const width=Number(e?.largura||e?.medida||0),cw=Number(c?.largura||0);
+  const sourceUnit=String(e?.un||'').toUpperCase(),target=identificationTargetUnit(e);
+  if(target&&catalogUnit(c)!==target)return -999;
+  let score=0;
+  if(cat==='TUBETES'){
+    if(tubeteTypeAliases(e,desc))score+=35;
+    else if(tipo&&desc.includes(tipo))score+=10;
+    if(width&&cw){if(width===cw)score+=40;else if(Math.abs(width-cw)<=1)score+=25;else score-=Math.min(30,Math.abs(width-cw)/3);}
+    return score;
+  }
+  const query=[tipo,material,modelo].filter(Boolean).join(' ');
+  for(const tok of query.split(' ').filter(x=>x.length>1))if(desc.includes(tok))score+=2;
+  if(width&&cw){if(width===cw)score+=14;else if(Math.abs(width-cw)<=1)score+=8;else score-=Math.min(10,Math.abs(width-cw)/8);}
+  const isP=pearl(e),grams=catalogGramsM2(c),thick=catalogThickness(c),entryMeasure=Number(e?.micra||0);
+  if(isP){
+    if(desc.includes('perola'))score+=8;
+    if(entryMeasure&&grams&&Math.abs(entryMeasure-grams)<0.01)score+=18;
+    else if(entryMeasure&&grams&&Math.abs(entryMeasure-grams)<=0.5)score+=8;
+  }else if(entryMeasure&&thick){
+    const wanted=normalizedFilmThickness(e);
+    const got=matchFilmThickness(e,c);
+    if(Math.abs(wanted-got)<0.0001)score+=30;
+    else if(Math.abs(wanted-got)<=0.001)score+=14;
+  }
+  if(cat==='FILME'&&sourceUnit==='KG'&&catalogUnit(c)==='M2')score+=24;
+  if(cat==='FILME'&&desc.includes('filme'))score+=2;
+  return score;
+}
+function findMatches(e){
+  const items=getCatalogCache(), out=[];
+  const cat=String(e?.category||'').toUpperCase();
+  // FILME: não mostrar candidatos que não batem exatamente nas características
+  // que definem o produto. Isso evita, por exemplo, METALIZADO ou 360 mm
+  // aparecerem para um TRANSPARENTE 361 mm 30 micras.
+  if(cat==='FILME'){
+    const exact=[];
+    for(const x of items){
+      if(exactCatalogSignature(e,x.c)) exact.push({c:x.c,score:1000});
+    }
+    exact.sort((a,b)=>String(a.c.codigo).localeCompare(String(b.c.codigo)));
+    if(exact.length) return exact.slice(0,8);
+    return [];
+  }
+  if(cat==='TUBETES'){
+    const exact=[];
+    for(const x of items){
+      if(exactCatalogSignature(e,x.c)) exact.push({c:x.c,score:1000});
+    }
+    exact.sort((a,b)=>String(a.c.codigo).localeCompare(String(b.c.codigo)));
+    if(exact.length) return exact.slice(0,8);
+    return [];
+  }
+  for(const x of items){const score=catalogSearchScore(e,x.c);if(score>-999)out.push({c:x.c,score});}
+  out.sort((a,b)=>b.score-a.score||String(a.c.codigo).localeCompare(String(b.c.codigo)));
+  return out.slice(0,8);
+}
+function isAutoMatch(e,top,second){
+  if(!top)return false;
+  const target=identificationTargetUnit(e);
+  if(target && catalogUnit(top.c)!==target)return false;
+  if(second && second.score===top.score)return false;
+  const cat=String(e?.category||'').toUpperCase();
+  const width=Number(e?.largura||e?.medida||0), cw=Number(top.c?.largura||0);
+  if(cat==='TUBETES'){
+    const alias=tubeteTypeAliases(e,top.c?.descricao||'');
+    return alias && width>0 && cw===width && (!second || top.score-second.score>=5);
+  }
+  if(cat==='FILME'){
+    const isP=pearl(e), entryM=Number(e?.micra||0), wanted=normalizedFilmThickness(e);
+    const thick=matchFilmThickness(e,top.c), grams=catalogGramsM2(top.c);
+    const widthExact=width>0 && cw>0 && width===cw;
+    const measureExact=isP ? (entryM>0&&grams>0&&Math.abs(entryM-grams)<=0.01) : (wanted>0&&thick>0&&Math.abs(wanted-thick)<=0.0001);
+    const typeOk=filmTypeCompatible(e,top.c?.descricao||'');
+    // Se largura + espessura/gramatura + tipo + unidade baterem exatamente,
+    // não exigir uma pontuação artificialmente alta. Só bloqueia quando há outro
+    // candidato com a mesma assinatura exata, porque aí realmente é ambíguo.
+    if(widthExact && measureExact && typeOk && catalogUnit(top.c)==='M2'){
+      const exacts=findMatches(e).filter(m=>exactCatalogSignature(e,m.c));
+      if(exacts.length===1)return true;
+    }
+  }
+  // Para os demais casos, aceita uma correspondência forte sem exigir texto idêntico.
+  // A diferença precisa ser suficiente para não escolher dois códigos parecidos.
+  return top.score>=18 && (!second || top.score-second.score>=4);
+}
+
+function manualSearchCandidates(key){
+  const g=balanceGroups().find(x=>groupKey(x)===key); return g?.e||null;
+}
+let manualIdentificationKey='';
+function openIquattroSearch(key){
+  manualIdentificationKey=key||'';
+  const e=manualSearchCandidates(manualIdentificationKey)||{};
+  $('#iquattroSearchInput').value='';
+  $('#iquattroSearchHint').textContent=`${balanceLabel(e)} · ${e.un||''}. Procure pelo código ou descrição.`;
+  $('#iquattroSearchModal').classList.add('open');
+  $('#iquattroSearchInput').focus();
+  renderIquattroSearch();
+}
+function closeIquattroSearch(){ $('#iquattroSearchModal').classList.remove('open'); manualIdentificationKey=''; }
+function renderIquattroSearch(){
+  const e=manualSearchCandidates(manualIdentificationKey)||{};
+  const q=norm($('#iquattroSearchInput').value||'');
+  const target=identificationTargetUnit(e);
+  const catalog=getCatalogCache();
+  let rows=catalog.filter(x=>{
+    if(!x.text||x.text.includes('TESTE'))return false;
+    if(target && x.unit!==target)return false;
+    return !q||x.text.includes(q);
+  }).map(x=>x.c);
+  rows.sort((a,b)=>String(a.codigo).localeCompare(String(b.codigo)));
+  rows=rows.slice(0,30);
+  const box=$('#iquattroResults');
+  if(!rows.length){box.innerHTML=`<div class="ident-empty">Nenhum produto ${target?`com unidade ${esc(target)} `:''}encontrado.</div>`;return;}
+  window.__MABFLEX_MANUAL_CODES__={};
+  box.innerHTML=rows.map((c,i)=>{
+    window.__MABFLEX_MANUAL_CODES__[String(i)]={key:manualIdentificationKey,code:String(c.codigo)};
+    const g=balanceGroups().find(g=>groupKey(g)===manualIdentificationKey),total=(g?.Cima||0)+(g?.Baixo||0),cv=conversionPreview(e,total,c);
+    const candType=String(c.descricao||'').toUpperCase(); return `<div class="iquattro-result"><div class="iquattro-result-main"><b>${esc(c.codigo)} <span class="iqunit ${catalogUnit(c)==='M2'?'m2':''}">${esc(catalogUnit(c))}</span></b><small><b>Descrição:</b> ${esc(c.descricao||'')}${c.largura?` · ${esc(c.largura)} mm`:''}</small><small><b>Tipo do lançamento:</b> ${esc(e.tipo||e.modelo||e.material||'—')}</small>${cv?`<div class="ident-conversion">${esc(cv)}</div>`:''}</div><button class="ok" type="button" data-iquattro-use="${i}">USAR</button></div>`;
+  }).join('');
+}
+async function useManualIquattro(code){
+  const e=manualSearchCandidates(manualIdentificationKey); if(!e)return;
+  const c=(window.MABFLEX_CATALOGO_IQUATTRO||[]).find(x=>String(x.codigo)===String(code)); if(!c)return;
+  const target=identificationTargetUnit(e);
+  if(target && catalogUnit(c)!==target)return toast(`Para ${e.category}, selecione um código ${target}.`);
+  try{await updateEntryIdentification(manualIdentificationKey,{codigo:c.codigo,unidade:catalogUnit(c),descricao:c.descricao,confianca:'manual'});closeIquattroSearch();renderIdentification();renderBalance();toast('Código do iQuattro salvo ✓');}
+  catch(err){console.error(err);toast('Erro ao salvar código: '+(err?.message||'ver console'));}
+}
+function groupKey(g){return balanceKey(g?.e||g||{});}
+function groupIdent(g){
+  const e=g?.e||g||{};
+  const k=groupKey(e);
+  const saved=(state.identificacoes&&state.identificacoes[k])||{};
+  return {
+    ...saved,
+    codigo:saved.codigo||e.codigoProduto||'',
+    unidade:saved.unidade||e.unidadeSistema||e.un||'',
+    descricao:saved.descricao||e.identificacaoDescricao||''
+  };
+}
+function confirmedIdentificationGroups(){
+  return balanceGroups().filter(g=>{
+    const id=groupIdent(g);
+    return !!(id.codigo||g.e?.codigoProduto);
+  }).map(g=>({...g,ident:groupIdent(g)}));
+}
+function identificationCandidates(){
+  return balanceGroups().filter(g=>{const id=groupIdent(g); return !(id&&id.codigo);});
+}
+async function runIdentification(){
+  try{
+    state=normalizeState(state);
+    const pending=identificationCandidates();
+    let automaticos=0;
+    for(const g of pending){
+      const e=g.e;
+      const ms=findMatches(e), top=ms[0], second=ms[1];
+      if(!isAutoMatch(e,top,second))continue;
+      const key=groupKey(g);
+      const c=top.c;
+      try{
+        await updateEntryIdentification(key,{codigo:c.codigo,unidade:catalogUnit(c),descricao:c.descricao,confianca:'automatico'});
+        automaticos++;
+      }catch(err){console.error('Falha ao salvar identificação automática',key,err);}
+    }
+    renderIdentification();
+    renderBalance();
+    toast(automaticos ? `${automaticos} produto(s) identificado(s) automaticamente ✓` : 'Nenhuma correspondência segura encontrada');
+  }catch(err){console.error(err);toast('Erro na identificação: '+(err?.message||'ver console'));}
+}
+async function updateEntryIdentification(key,id){
+  if(!key||!id?.codigo)throw new Error('Identificação inválida');
+  state=normalizeState(state);
+  state.identificacoes[key]={...(state.identificacoes[key]||{}),...id,status:'confirmado'};
+  for(const e of state.entries){
+    if(balanceKey(e)===key){
+      e.codigoProduto=id.codigo;
+      e.unidadeSistema=id.unidade||e.unidadeSistema||e.un;
+      e.identificacaoDescricao=id.descricao||e.identificacaoDescricao||'';
+      e.identificacaoConfianca=id.confianca||'confirmado';
+      e.identificacaoStatus='confirmado';
+    }
+  }
+  saveLocalOnly();
+  const op={
+    id:'ident_'+key+'_'+String(id.codigo),
+    type:'set_identification',
+    key,
+    identificacao:{...id,status:'confirmado'}
+  };
+  const result=await cloudIdentificationOp(op);
+  if(result?.__error)throw result.error||new Error('Não foi possível salvar no servidor');
+  return result;
+}
+// Re-render da conferência com busca manual discreta.
+if(typeof balanceGroups!=='function'){ window.balanceGroups=function(){return []}; }
+function normalizeDisplayEntry(e){
+  if(!e) return e;
+  if(norm(e.category)==='FILME' && norm(e.tipo)==='METAL') e.tipo='Metalizado';
+  if(norm(e.category)==='TUBETES') e.tipo=normalizeTubeteType(e.tipo);
+  return e;
+}
+
+function renderIdentification(){
+  state=normalizeState(state);
+  state.entries.forEach(normalizeDisplayEntry);
+  state.history.forEach(normalizeDisplayEntry);
+  const list=$('#identificationList');if(!list)return;
+  const pending=identificationCandidates(),confirmed=confirmedIdentificationGroups(); window.__MABFLEX_IDENT_GROUPS__={};
+  let html=`<div class="ident-tabs"><button type="button" class="ident-tab active" data-ident-tab="pending">Pendentes <span class="ident-count">${pending.length}</span></button><button type="button" class="ident-tab" data-ident-tab="confirmed">Confirmados <span class="ident-count">${confirmed.length}</span></button></div><div id="identPendingPanel">`;
+  if(!pending.length)html+='<div class="ident-empty">Nenhum material pendente de identificação.</div>';
+  pending.forEach((g,gi)=>{
+    const e=g.e,ms=findMatches(e),top=ms[0],second=ms[1],safe=isAutoMatch(e,top,second),key=groupKey(g),total=g.Cima+g.Baixo;
+    window.__MABFLEX_IDENT_GROUPS__[String(gi)]={key};
+    const typeText=String(e.tipoAdesivo||e.tipo||e.material||'').trim(); const modelText=String(e.modelo||'').trim(); const catText=String(e.category||'').trim(); html+=`<div class="identify-card"><strong>${esc(balanceLabel(e))}</strong><span class="identify-badge ${safe?'badge-ok':top?'badge-warn':'badge-no'}">${safe?'SEGURO':top?'ESCOLHER':'NÃO ENCONTRADO'}</span><div class="identify-meta"><b>Material/Acabamento:</b> ${esc(typeText||'—')}${modelText?` · <b>Modelo:</b> ${esc(modelText)}`:''} · <b>Largura:</b> ${esc(e.largura||e.medida||'—')}${e.micra?` · <b>Micra/gramas:</b> ${esc(e.micra)}`:''}</div><div class="identify-meta">${esc(e.material||e.category||'')} · Cima ${fmt(g.Cima)} ${esc(e.un)} · Baixo ${fmt(g.Baixo)} ${esc(e.un)}</div>`;
+    ms.slice(0,3).forEach((m,i)=>{const id=gi+'_'+i;window.__MABFLEX_IDENT_GROUPS__[id]={key,code:String(m.c.codigo)};const cv=conversionPreview(e,total,m.c);html+=`<div class="identify-choice"><div><b>${esc(m.c.codigo)} <span class="iqunit ${catalogUnit(m.c)==='M2'?'m2':''}">${esc(catalogUnit(m.c))}</span></b><div class="identify-meta"><b>Material/Acabamento no iQuattro:</b> ${esc(m.c.descricao)} · largura ${esc(m.c.largura??(catalogWidthRobust(m.c)||''))}</div>${cv?`<div class="ident-conversion">${esc(cv)}</div>`:''}</div><button type="button" data-ident-use="${id}">USAR</button></div>`;});
+    if(!safe||!ms.length)html+=`<div class="ident-manual"><button type="button" data-ident-search="${gi}">⌕ Buscar código no iQuattro</button></div>`;
+    html+='</div>';
+  });
+  html+='</div><div id="identConfirmedPanel" style="display:none">';
+  if(!confirmed.length)html+='<div class="ident-empty">Nenhum produto confirmado ainda.</div>';
+  confirmed.forEach(g=>{const e=g.e,id=g.ident||{},cv=conversionPreview(e,g.Cima+g.Baixo,{unidade:id.unidade,descricao:id.descricao,largura:e.largura});html+=`<div class="identify-card confirmed-card"><strong>${esc(balanceLabel(e))}</strong><span class="identify-badge badge-ok">CONFIRMADO</span><div class="identify-meta">Código: <span class="confirm-code">${esc(id.codigo||e.codigoProduto||'')}</span> · Unidade: ${esc(id.unidade||e.unidadeSistema||e.un||'')}</div><div class="identify-meta">${esc(id.descricao||'')}</div>${cv?`<div class="ident-conversion">${esc(cv)}</div>`:''}</div>`;});
+  html+='</div>'; list.innerHTML=html;
+}
+$('#identificationList').onclick=async ev=>{
+  const tab=ev.target.closest('[data-ident-tab]');
+  if(tab){const mode=tab.dataset.identTab;$$('#identificationList .ident-tab').forEach(x=>x.classList.toggle('active',x===tab));$('#identPendingPanel').style.display=mode==='pending'?'block':'none';$('#identConfirmedPanel').style.display=mode==='confirmed'?'block':'none';return;}
+  const sb=ev.target.closest('[data-ident-search]'); if(sb){const ref=window.__MABFLEX_IDENT_GROUPS__?.[sb.dataset.identSearch];if(ref)openIquattroSearch(ref.key);return;}
+  const b=ev.target.closest('[data-ident-use]');if(!b)return; const ref=window.__MABFLEX_IDENT_GROUPS__?.[b.dataset.identUse];if(!ref)return toast('Candidato não encontrado.');
+  const c=(window.MABFLEX_CATALOGO_IQUATTRO||[]).find(x=>String(x.codigo)===String(ref.code));if(!c)return toast('Produto não encontrado na base.');b.disabled=true;b.textContent='SALVANDO...';
+  try{await updateEntryIdentification(ref.key,{codigo:c.codigo,unidade:catalogUnit(c),descricao:c.descricao,confianca:'confirmado'});renderIdentification();renderBalance();toast('Produto identificado ✓');}catch(err){b.disabled=false;b.textContent='USAR';console.error(err);toast('Erro ao salvar identificação: '+(err?.message||'ver console'));}
+};
+let iquattroSearchTimer=0;$('#iquattroSearchBtn').onclick=renderIquattroSearch;$('#iquattroSearchInput').addEventListener('input',()=>{clearTimeout(iquattroSearchTimer);iquattroSearchTimer=setTimeout(renderIquattroSearch,120);});$('#iquattroSearchInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();renderIquattroSearch()}if(e.key==='Escape')closeIquattroSearch()});$('#iquattroSearchClose').onclick=closeIquattroSearch;$('#iquattroSearchModal').addEventListener('click',e=>{if(e.target.id==='iquattroSearchModal')closeIquattroSearch()});
+$('#iquattroResults').onclick=ev=>{const b=ev.target.closest('[data-iquattro-use]');if(!b)return;const ref=window.__MABFLEX_MANUAL_CODES__?.[b.dataset.iquattroUse];if(ref)useManualIquattro(ref.code)};
+function csvText(value){
+  if(value===null||value===undefined||value==='')return '';
+  return '"'+String(value).replaceAll('"','""')+'"';
+}
+function csvNumber2(value){
+  if(value===null||value===undefined||value==='')return '';
+  const n=Number(value); if(!Number.isFinite(n))return '';
+  return n.toLocaleString('pt-BR',{useGrouping:false,minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function csvNumber(value){
+  if(value===null||value===undefined||value==='')return '';
+  const n=Number(value); if(!Number.isFinite(n))return '';
+  return n.toLocaleString('pt-BR',{useGrouping:false,maximumFractionDigits:6});
+}
+function exportImportStock(localName){
+  state=normalizeState(state);
+  state.entries.forEach(normalizeDisplayEntry);
+  state.history.forEach(normalizeDisplayEntry);
+  const groups=balanceGroups().filter(g=>num(localName==='Estoque Cima'?g.Cima:g.Baixo)>0);
+  if(!groups.length)return toast(`Não há dados para exportar no ${localName}.`);
+  const rows=[];
+  for(const g of groups){
+    const e=g.e,id=groupIdent(g)||{},saldo=num(localName==='Estoque Cima'?g.Cima:g.Baixo);
+    const codigo=String(id.codigo||e.codigoProduto||'').trim();
+    const unid=String(id.unidade||e.unidadeSistema||e.un||'').trim().toUpperCase();
+    const sourceUnit=String(e.un||'').toUpperCase();
+    const c=codigo?(window.MABFLEX_CATALOGO_IQUATTRO||[]).find(x=>String(x.codigo)===codigo):null;
+    let saldoImport=saldo;
+    let kgExport=sourceUnit==='KG'?saldo:'';
+    let status='OK';
+    let metroLinear='';
+
+    if(!codigo){
+      status='SEM_CODIGO';
+      // O item permanece na planilha. Não inventamos código/unidade.
+    }else if(unid==='M2'){
+      if(sourceUnit==='KG'){
+        let cv=conversionKgToM2(e,saldo,c);
+        if(cv!=null) saldoImport=cv;
+        else { status='CONVERSAO_PENDENTE'; saldoImport=''; }
+      }else if(sourceUnit==='METROS' || sourceUnit==='MTL' || sourceUnit==='M'){
+        const largura=Number(e.largura||e.medida||0);
+        if(largura>0)saldoImport=saldo*largura/1000;
+        else { status='CONVERSAO_PENDENTE'; saldoImport=''; }
+      }
+    }else if(unid==='UN'){
+      saldoImport=saldo;
+    }
+
+    const larguraExport=Number(e.largura||e.medida||0);
+    if(unid==='M2' && larguraExport>0 && saldoImport!=='') metroLinear=saldoImport*1000/larguraExport;
+    else if((unid==='MTL'||unid==='METROS'||unid==='M') && sourceUnit!=='KG') metroLinear=saldo;
+
+    const materialNome=String(e.material||e.nome||e.category||'').trim();
+    const acabamento=String(e.tipoAdesivo||e.tipo||'').trim();
+    const modeloNome=String(e.modelo||'').trim();
+    const larguraNome=String(e.largura||e.medida||'').trim();
+    const identificacaoMaterial=[
+      materialNome?`Material: ${materialNome}`:'',
+      acabamento?`Acabamento: ${acabamento}`:'',
+      modeloNome?`Modelo: ${modeloNome}`:'',
+      larguraNome?`Largura: ${larguraNome} mm`:''
+    ].filter(Boolean).join(' | ');
+    rows.push({
+      codigo,unid,cat:e.category||'',tipo:e.tipo||'',modelo:e.modelo||'',
+      largura:e.largura||e.medida||'',micra:e.micra||'',kg:kgExport,
+      identificacaoMaterial,metroLinear,saldo:saldoImport,status
+    });
+  }
+
+  // IMPORTANTE: nenhum item com saldo positivo é descartado.
+  // Sem código ou sem conversão, ele continua no arquivo com STATUS para conferência.
+  const cols=['CODIGO_PRODUTO','UNID','CATEGORIA','TIPO','MODELO','LARGURA','MICRA','IDENTIFICACAO_MATERIAL','METRO_LINEAR','SALDO','STATUS'];
+  const lines=[cols.map(csvText).join(';')];
+  for(const r of rows){
+    lines.push([
+      csvText(r.codigo),csvText(r.unid),csvText(r.cat),csvText(r.tipo),csvText(r.modelo),
+      csvNumber(r.largura),csvNumber(r.micra),csvText(r.identificacaoMaterial),
+      r.metroLinear===''?'':csvNumber2(r.metroLinear),
+      r.saldo===''?'':(r.unid==='M2'?csvNumber2(r.saldo):csvNumber(r.saldo)),
+      csvText(r.status)
+    ].join(';'));
+  }
+  const csv='\ufeff'+lines.join('\r\n')+'\r\n';
+  const safe=localName==='Estoque Cima'?'CIMA':'BAIXO';
+  download(`MABFLEX_IQUATTRO_${safe}_${dateFile()}.csv`,csv,'text/csv;charset=utf-8');
+  const pend=rows.filter(r=>r.status!=='OK').length;
+  toast(`${localName}: ${rows.length} produtos exportados${pend?` · ${pend} precisam de conferência`:''} ✓`);
+}
+function exportConferenceStock(localName){
+  state=normalizeState(state);
+  state.entries.forEach(normalizeDisplayEntry);
+  state.history.forEach(normalizeDisplayEntry);
+  const groups=balanceGroups().filter(g=>num(localName==='Estoque Cima'?g.Cima:g.Baixo)>0);
+  if(!groups.length)return toast(`Não há dados para conferir no ${localName}.`);
+  const rows=groups.map(g=>{
+    const e=g.e,id=groupIdent(g)||{};
+    const saldo=num(localName==='Estoque Cima'?g.Cima:g.Baixo);
+    const codigo=String(id.codigo||e.codigoProduto||'').trim();
+    const unid=String(id.unidade||e.unidadeSistema||e.un||'').trim().toUpperCase();
+    const larguraExport=Number(e.largura||e.medida||0);
+    const metroLinear=(unid==='M2'&&larguraExport>0)?(saldo*1000/larguraExport):((unid==='MTL'||unid==='METROS'||unid==='M')?saldo:'');
+    return {codigo,unid,cat:e.category||'',tipo:e.tipo||'',modelo:e.modelo||'',largura:e.largura||e.medida||'',micra:e.micra||'',kg:String(e.un||'').toUpperCase()==='KG'?saldo:'',metroLinear,saldo};
+  });
+  const head=['CODIGO_PRODUTO','UNID','CATEGORIA','TIPO','MODELO','LARGURA','MICRA','KG','METRO_LINEAR','SALDO'];
+  const th=head.map(x=>`<th>${htmlEsc(x)}</th>`).join('');
+  const body=rows.map(r=>{
+    const missing=!r.codigo;
+    const style=missing?' style="background:#FFE7C2;mso-pattern:auto;"':'';
+    return `<tr${style}>${[r.codigo,r.unid,r.cat,r.tipo,r.modelo,r.largura,r.micra,r.kg===''?'':csvNumber2(r.kg),r.metroLinear===''?'':csvNumber2(r.metroLinear),csvNumber2(r.saldo)].map(v=>`<td>${htmlEsc(v)}</td>`).join('')}</tr>`;
+  }).join('');
+  const html=`<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"><style>table{border-collapse:collapse;font-family:Arial;font-size:10pt}th,td{border:1px solid #b7b7b7;padding:5px 7px}th{background:#e9eef3;font-weight:bold} .pendente{background:#FFE7C2}</style></head><body><h2>MABFLEX — CONFERÊNCIA ${htmlEsc(localName)}</h2><p>Itens sem código iQuattro ficam destacados em laranja claro e permanecem sem código.</p><table><tr>${th}</tr>${body}</table>
+</body></html>`;
+  const safe=localName==='Estoque Cima'?'CIMA':'BAIXO';
+  download(`MABFLEX_CONFERENCIA_${safe}_${dateFile()}.xls`,html,'application/vnd.ms-excel;charset=utf-8');
+  const pend=rows.filter(r=>!r.codigo).length;
+  toast(`${localName}: conferência gerada${pend?` · ${pend} sem código em laranja`:''} ✓`);
+}
+
+$('#exportImportCima').onclick=()=>exportImportStock('Estoque Cima');
+$('#exportImportBaixo').onclick=()=>exportImportStock('Estoque Baixo');
+$('#exportConfCima').onclick=()=>exportConferenceStock('Estoque Cima');
+$('#exportConfBaixo').onclick=()=>exportConferenceStock('Estoque Baixo');
+$('#refreshIdentification').onclick=runIdentification;$('#runIdentification').onclick=runIdentification;
+
+
+/* V72 — catálogo de adesivos da relação de materiais. */
+function adhesiveModelNorm(s){return norm(s).replace(/\s+/g,' ').trim()}
+function adhesiveTypeCompatible(type,desc){
+  const t=adhesiveModelNorm(type),d=adhesiveModelNorm(desc);
+  if(!t)return false;
+  const rules={
+    'metalizado acrilico':['metal','bopp','adc210'],
+    'transparente acrilico':['transparente','bopp','adc220'],
+    'transparente borracha':['transparente','bopp','adc5240'],
+    'metalizado borracha':['metal','bopp'],
+    'couche borracha':['couche'],
+    'couche acrilico':['couche'],
+    'fosco borracha':['bco fosco'],
+    'branco brilho acrilico':['bco','brilho'],
+    'fosco acrilico':['bco fosco'],
+    'branco brilho borracha':['bco','brilho']
+  };
+  const req=rules[t]||[];
+  if(t==='metalizado acrilico')return d.includes('metal')&&d.includes('bopp')&&(d.includes('adc210')||d.includes('ppmp50 pa1')||d.includes('pptc gloss silver'));
+  if(t==='transparente acrilico')return d.includes('transparente')&&d.includes('bopp')&&(d.includes('adc220')||d.includes('pptc8 gloss clear')||d.includes('tecfilm'));
+  if(t==='transparente borracha')return d.includes('transparente')&&d.includes('bopp')&&d.includes('adc5240');
+  if(t==='metalizado borracha')return d.includes('metal')&&d.includes('bopp');
+  if(t==='couche borracha')return d.includes('couche');
+  if(t==='couche acrilico')return d.includes('couche');
+  if(t==='fosco borracha')return d.includes('bco fosco');
+  if(t==='branco brilho acrilico')return d.includes('bco')&&d.includes('brilho');
+  if(t==='fosco acrilico')return d.includes('bco fosco');
+  if(t==='branco brilho borracha')return d.includes('bco')&&d.includes('brilho');
+  return req.every(x=>d.includes(x));
+}
+function adhesiveModelCompatible(model,desc){
+  const m=adhesiveModelNorm(model),d=adhesiveModelNorm(desc); if(!m)return false;
+  return d.includes(m);
+}
+function adhesiveExact(e,c){
+  if(!c||catalogUnit(c)!=='M2'||norm(c.descricao||'').includes('teste'))return false;
+  const model=String(e?.modelo||'').trim(),type=String(e?.tipoAdesivo||e?.tipo||'').trim();
+  if(!model||!type)return false;
+  const w=Number(e?.largura||e?.medida||0),cw=Number(c?.largura||window.catalogWidthRobust(c)||0);
+  return w>0&&cw===w&&adhesiveModelCompatible(model,c.descricao||'')&&adhesiveTypeCompatible(type,c.descricao||'');
+}
+/* V58 — identificação determinística: não ranqueia filmes parecidos. */
+(function(){
+  function v58FilmClass(e){
+    const vals=[e?.tipo,e?.material,e?.modelo].map(x=>norm(x||''));
+    // O campo TIPO tem prioridade. Só usa os demais se realmente houver uma classe de filme.
+    for(const s of vals){
+      if(!s) continue;
+      if(s.includes('PEROLA')) return 'PEROLA';
+      if(s.includes('METAL')) return 'METAL';
+      if(s.includes('MATE')) return 'MATE';
+      if(s==='TRANSPARENTE'||s.includes(' TRANSPARENTE')||s.startsWith('TRANSPARENTE')) return 'TRANSPARENTE';
+    }
+    return '';
+  }
+  function v58TypeOk(e, desc){
+    const wanted=v58FilmClass(e), d=norm(desc||'');
+    if(!wanted) return false;
+    if(wanted==='TRANSPARENTE') return d.includes('TRANSPARENTE') && !d.includes('MATE') && !d.includes('METAL') && !d.includes('PEROLA');
+    if(wanted==='MATE') return d.includes('TRANSPARENTE') && d.includes('MATE') && !d.includes('METAL') && !d.includes('PEROLA');
+    if(wanted==='METAL') return d.includes('METAL') && !d.includes('PEROLA');
+    if(wanted==='PEROLA') return d.includes('PEROLA');
+    return false;
+  }
+  function v58Num(v){
+    if(v===null||v===undefined||v==='') return 0;
+    const n=Number(String(v).replace(',','.')); return Number.isFinite(n)?n:0;
+  }
+  function v58Thickness(e,c){
+    if(pearl(e)){
+      const a=v58Num(e?.micra), b=v58Num(catalogGramsM2(c));
+      return a>0&&b>0&&Math.abs(a-b)<0.01;
+    }
+    const a=v58Num(e?.micra); let b=v58Num(catalogThickness(c));
+    if(!a||!b) return false;
+    const ed=norm([e?.tipo,e?.material,e?.modelo].filter(Boolean).join(' '));
+    const cd=norm(c?.descricao||'');
+    const isPE=ed.includes('PEAD')||ed.includes('PEBD')||ed.includes('POLIETILENO')||cd.includes('PEAD')||cd.includes('PEBD')||cd.includes('POLIETILENO');
+    if(isPE){ if(a>=1) a/=1000; if(b>=1) b/=1000; }
+    return Math.abs(a-b)<0.0001;
+  }
+  function v58Exact(e,c){
+    if(!c || norm(c.descricao||'').includes('TESTE')) return false;
+    const cat=String(e?.category||'').toUpperCase();
+    const target=identificationTargetUnit(e);
+    if(target && catalogUnit(c)!==target) return false;
+    if(cat==='FILME'){
+      const w=v58Num(e?.largura||e?.medida), cw=v58Num(c?.largura);
+      return w>0 && cw===w && catalogUnit(c)==='M2' && v58TypeOk(e,c.descricao) && v58Thickness(e,c);
+    }
+    if(cat==='TUBETES'){
+      const w=v58Num(e?.largura||e?.medida), cw=v58Num(c?.largura);
+      return w>0 && cw===w && catalogUnit(c)==='UN' && tubeteTypeAliases(e,c.descricao);
+    }
+    return false;
+  }
+  window.__mabflexV58Exact=v58Exact;
+  window.__mabflexV58FilmClass=v58FilmClass;
+  window.findMatches=function(e){
+    const items=getCatalogCache();
+    const cat=String(e?.category||'').toUpperCase();
+    if(cat==='FILME'||cat==='TUBETES'){
+      return items.filter(x=>v58Exact(e,x.c)).map(x=>({c:x.c,score:1000})).slice(0,8);
+    }
+    const out=[];
+    for(const x of items){const score=catalogSearchScore(e,x.c);if(score>-999)out.push({c:x.c,score});}
+    out.sort((a,b)=>b.score-a.score||String(a.c.codigo).localeCompare(String(b.c.codigo)));
+    return out.slice(0,8);
+  };
+  window.isAutoMatch=function(e,top,second){
+    if(!top) return false;
+    const cat=String(e?.category||'').toUpperCase();
+    if(cat==='FILME'||cat==='TUBETES'){
+      if(!v58Exact(e,top.c)) return false;
+      const all=findMatches(e);
+      return all.length===1;
+    }
+    const target=identificationTargetUnit(e);
+    return (!target||catalogUnit(top.c)===target) && top.score>=18 && (!second||top.score-second.score>=4);
+  };
+  // Recria a lista sem depender de funções antigas que ficaram em versões anteriores.
+  const oldRun=window.runIdentification;
+  window.runIdentification=async function(){
+    try{
+      state=normalizeState(state);
+      const pending=identificationCandidates(); let automaticos=0;
+      for(const g of pending){
+        const ms=window.findMatches(g.e); if(ms.length!==1) continue;
+        const c=ms[0].c;
+        try{await updateEntryIdentification(groupKey(g),{codigo:c.codigo,unidade:catalogUnit(c),descricao:c.descricao,confianca:'automatico'});automaticos++;}
+        catch(err){console.error('Falha ao salvar identificação automática',err);}
+      }
+      renderIdentification(); renderBalance();
+      toast(automaticos?`${automaticos} produto(s) identificado(s) automaticamente ✓`:'Nenhuma correspondência exata única encontrada');
+    }catch(err){console.error(err);toast('Erro na identificação: '+(err?.message||err));}
+  };
+})();
+
+/* V59 — nomes amigáveis -> nomenclatura do iQuattro, sem exigir que o usuário digite a descrição inteira. */
+(function(){
+  function v59Text(v){return norm(v||'');}
+  function v59CatalogWidth(c){
+    const w=Number(c?.largura||0); if(w>0)return w;
+    const d=v59Text(c?.descricao||'');
+    const m=d.match(/(\d+(?:[\.,]\d+)?)\s*MM\b/i);
+    return m?Number(m[1].replace(',','.')):0;
+  }
+  function v59SimpleFilmType(e){
+    const s=v59Text([e?.tipo,e?.material,e?.modelo].filter(Boolean).join(' '));
+    if(s.includes('perola'))return 'PEROLA';
+    if(s.includes('metal'))return 'METAL';
+    if(s.includes('mate'))return 'MATE';
+    if(s.includes('transparente'))return 'TRANSPARENTE';
+    return '';
+  }
+  function v59CatalogFilmType(desc){
+    const d=v59Text(desc);
+    if(d.includes('perola'))return 'PEROLA';
+    if(d.includes('metalizado'))return 'METAL';
+    if(d.includes('transparente')&&d.includes('mate'))return 'MATE';
+    if(d.includes('transparente'))return 'TRANSPARENTE';
+    return '';
+  }
+  function v59Thickness(e,c){
+    const wanted=Number(e?.micra||0); if(!(wanted>0))return false;
+    const d=v59Text(c?.descricao||'');
+    if(v59SimpleFilmType(e)==='PEROLA'){
+      const g=catalogGramsM2(c); return g>0 && Math.abs(wanted-g)<0.01;
+    }
+    let got=catalogThickness(c);
+    // catalogThickness lê micras; para PEAD/PEBD aceita também 0.085/0.095.
+    const ed=v59Text([e?.tipo,e?.material,e?.modelo].filter(Boolean).join(' '));
+    const pe=ed.includes('pead')||ed.includes('pebd')||ed.includes('polietileno')||d.includes('pead')||d.includes('pebd')||d.includes('polietileno');
+    if(pe){
+      const a=wanted>=1?wanted/1000:wanted;
+      const b=got>=1?got/1000:got;
+      return Math.abs(a-b)<0.0001;
+    }
+    return got>0 && Math.abs(wanted-got)<0.0001;
+  }
+  function v59Exact(e,c){
+    if(!c||v59Text(c.descricao).includes('teste'))return false;
+    const cat=String(e?.category||'').toUpperCase();
+    if(cat==='FILME'){
+      if(catalogUnit(c)!=='M2')return false;
+      const type=v59SimpleFilmType(e), ctype=v59CatalogFilmType(c.descricao);
+      if(!type||type!==ctype)return false;
+      const w=Number(e?.largura||e?.medida||0), cw=v59CatalogWidth(c);
+      return w>0&&cw===w&&v59Thickness(e,c);
+    }
+    if(cat==='TUBETES'){
+      if(catalogUnit(c)!=='UN')return false;
+      const w=Number(e?.largura||e?.medida||0),cw=v59CatalogWidth(c);
+      return w>0&&cw===w&&tubeteTypeAliases(e,c.descricao);
+    }
+    if(cat==='ADESIVO') return adhesiveExact(e,c);
+    return false;
+  }
+  function v59Find(e){
+    const out=[];
+    for(const x of getCatalogCache()) if(v59Exact(e,x.c)) out.push({c:x.c,score:1000});
+    return out;
+  }
+  window.__mabflexV59Exact=v59Exact;
+  window.findMatches=function(e){
+    const cat=String(e?.category||'').toUpperCase();
+    if(cat==='FILME'||cat==='TUBETES'||cat==='ADESIVO') return v59Find(e);
+    const out=[];
+    for(const x of getCatalogCache()){
+      const score=catalogSearchScore(e,x.c); if(score>-999)out.push({c:x.c,score});
+    }
+    out.sort((a,b)=>b.score-a.score||String(a.c.codigo).localeCompare(String(b.c.codigo)));
+    return out.slice(0,8);
+  };
+  window.isAutoMatch=function(e,top,second){
+    if(!top)return false;
+    const cat=String(e?.category||'').toUpperCase();
+    if(cat==='FILME'||cat==='TUBETES'||cat==='ADESIVO')return v59Exact(e,top.c)&&findMatches(e).length===1;
+    const target=identificationTargetUnit(e);
+    return (!target||catalogUnit(top.c)===target)&&top.score>=18&&(!second||top.score-second.score>=4);
+  };
+})();
+</script>
+
+<script>
+/* V86 — identificação robusta por família, largura, medida e unidade; sem cruzar tipos. */
+(function(){
+  const FNUM=v=>{const n=Number(String(v??'').replace(',','.'));return Number.isFinite(n)?n:0};
+  const FTEXT=v=>norm(v||'');
+  function filmFamily(e){
+    const s=FTEXT([e?.tipo,e?.material,e?.modelo].filter(Boolean).join(' '));
+    if(s.includes('pead'))return 'PEAD';
+    if(s.includes('pebd'))return 'PEBD';
+    if(s.includes('polietileno'))return 'POLIETILENO';
+    if(s.includes('perola'))return 'PEROLA';
+    if(s.includes('metal'))return 'METAL';
+    if(s.includes('mate'))return 'MATE';
+    if(s.includes('transparente'))return 'TRANSPARENTE';
+    if(s.includes('pet'))return 'PET';
+    return '';
+  }
+  window.filmFamily=filmFamily;
+  function catalogFamily(desc){
+    const d=FTEXT(desc);
+    if(d.includes('pead'))return 'PEAD';
+    if(d.includes('pebd'))return 'PEBD';
+    if(d.includes('polietileno'))return 'POLIETILENO';
+    if(d.includes('perola'))return 'PEROLA';
+    if(d.includes('metalizado')||d.includes('metal'))return 'METAL';
+    if(d.includes('transparente')&&d.includes('mate'))return 'MATE';
+    if(d.includes('transparente'))return 'TRANSPARENTE';
+    if(d.includes('pet'))return 'PET';
+    return '';
+  }
+  function rawCatalogThickness(c){
+    const raw=String(c?.descricao||'');
+    const m=raw.match(/(\d+(?:[\.,]\d+)?)\s*MICRAS?/i);
+    if(!m)return 0;
+    let v=FNUM(m[1]);
+    const d=FTEXT(raw);
+    if((d.includes('pead')||d.includes('pebd')||d.includes('polietileno'))&&v>0&&v<1)v*=1000;
+    return v;
+  }
+  function rawPearlGrams(c){
+    const raw=String(c?.descricao||'');
+    const m=raw.match(/(\d+(?:[\.,]\d+)?)\s*GRAMAS?/i);
+    return m?FNUM(m[1]):0;
+  }
+  function pearlWeightFromEntry(e,c){
+    const v=FNUM(e?.micra);
+    const map={17:23.2877,20:27.3973,22:30.137,26:35.6164};
+    for(const k of Object.keys(map))if(Math.abs(v-Number(k))<0.01)return map[k];
+    return rawPearlGrams(c);
+  }
+  function catalogWidthRobust(c){
+    const w=FNUM(c?.largura); if(w>0) return w;
+    const d=String(c?.descricao||'');
+    const m=d.match(/(\d+(?:[\.,]\d+)?)\s*MM\b/i);
+    return m?FNUM(m[1]):0;
+  }
+  // Exporta os helpers usados pelos blocos de identificação posteriores.
+  window.catalogFamily=catalogFamily;
+  window.catalogWidthRobust=catalogWidthRobust;
+  window.rawCatalogThickness=rawCatalogThickness;
+  window.rawPearlGrams=rawPearlGrams;
+  window.normalizeFilmMicra=normalizeFilmMicra;
+  function normalizeFilmMicra(v, fam){
+    let n=FNUM(v);
+    if(!(n>0)) return 0;
+    if(['PEAD','PEBD','POLIETILENO'].includes(fam)){
+      // 0,085 no iQuattro = 85 micras; 85 no lançamento = 85 micras.
+      if(n<1) n*=1000;
+    }
+    return n;
+  }
+  function exactFilm(e,c){
+    if(!c || catalogUnit(c)!=='M2' || FTEXT(c.descricao).includes('teste')) return false;
+    const fam=filmFamily(e), cfam=catalogFamily(c.descricao);
+    if(!fam || fam!==cfam) return false;
+    const w=FNUM(e?.largura||e?.medida), cw=catalogWidthRobust(c);
+    if(!(w>0 && cw===w)) return false;
+    const ev=FNUM(e?.micra); if(!(ev>0)) return false;
+    if(fam==='PEROLA'){
+      const wanted=ev; const got=rawPearlGrams(c);
+      return got>0 && Math.abs(wanted-got)<0.01;
+    }
+    const cv=rawCatalogThickness(c);
+    if(!(cv>0)) return false;
+    return Math.abs(normalizeFilmMicra(ev,fam)-normalizeFilmMicra(cv,fam))<0.01;
+  }
+  function finalMatches(e){
+    const cat=FTEXT(e?.category).toUpperCase();
+    const raw=Array.isArray(window.MABFLEX_CATALOGO_IQUATTRO)?window.MABFLEX_CATALOGO_IQUATTRO:[];
+    if(cat==='FILME') return raw.filter(c=>exactFilm(e,c)).map(c=>({c,score:1000}));
+    if(cat==='TUBETES'){
+      const w=FNUM(e?.largura||e?.medida);
+      return raw.filter(c=>catalogUnit(c)==='UN' && FTEXT(c.descricao).includes('tubete') && catalogWidthRobust(c)===w && tubeteTypeAliases(e,c.descricao)).map(c=>({c,score:1000}));
+    }
+    if(cat==='ADESIVO') return raw.filter(c=>adhesiveExact(e,c)).map(c=>({c,score:1000}));
+    return [];
+  }
+  function kgToM2(e,kg,c){
+    kg=FNUM(kg);
+    if(!(kg>0)||!c)return null;
+    const width=FNUM(e?.largura||e?.medida||c?.largura);
+    if(!(width>0))return null;
+    const fam=filmFamily(e)||catalogFamily(c.descricao);
+
+    // FÓRMULA DA PLANILHA DEPOSITO 2.xlsx:
+    // METROS = KG / (LARGURA × ESPESSURA/PESO × DENSIDADE / 1.000.000)
+    // Depois: M² = METROS × LARGURA / 1.000.
+    let fator=0;
+    if(fam==='PEROLA'){
+      const grams=pearlWeightFromEntry(e,c);
+      if(!(grams>0))return null;
+      fator=grams*0.73;
+    }else{
+      let mic=FNUM(e?.micra);
+      if(!(mic>0))mic=rawCatalogThickness(c);
+      if((fam==='PEAD'||fam==='PEBD'||fam==='POLIETILENO')&&mic>0&&mic<1)mic*=1000;
+      let density=0;
+      if(fam==='METAL')density=0.912;
+      else if(fam==='MATE')density=0.910;
+      else if(fam==='TRANSPARENTE')density=0.905;
+      else if(fam==='PET')density=1.350;
+      else if(fam==='PEAD'||fam==='PEBD'||fam==='POLIETILENO')density=0.955;
+      if(!(mic>0&&density>0))return null;
+      fator=mic*density;
+    }
+    const metroLinear=kg*1000000/(width*fator);
+    if(!(metroLinear>0)||!Number.isFinite(metroLinear))return null;
+    return metroLinear*width/1000;
+  }
+  function kgToLinear(e,kg,c){
+    const m2=kgToM2(e,kg,c);
+    const width=FNUM(e?.largura||e?.medida||c?.largura);
+    return m2!=null&&width>0 ? m2*1000/width : null;
+  }
+  function exportRows(localName){
+    state=normalizeState(state);state.entries.forEach(normalizeDisplayEntry);state.history.forEach(normalizeDisplayEntry);
+    return balanceGroups().filter(g=>FNUM(localName==='Estoque Cima'?g.Cima:g.Baixo)>0).map(g=>{
+      const e=g.e,id=groupIdent(g)||{},saldo=FNUM(localName==='Estoque Cima'?g.Cima:g.Baixo);
+      const codigo=String(id.codigo||e.codigoProduto||'').trim();
+      const source=String(e.un||'').trim().toUpperCase();
+      const inferred=(String(e.category||'').toUpperCase()==='FILME' || String(e.category||'').toUpperCase()==='ADESIVO')?'M2':(String(e.category||'').toUpperCase()==='TUBETES'?'UN':'');
+      const unid=String(id.unidade||e.unidadeSistema||inferred||e.un||'').trim().toUpperCase();
+      const c=codigo?(window.MABFLEX_CATALOGO_IQUATTRO||[]).find(x=>String(x.codigo)===codigo):null;
+      let saldoImport=saldo,status=codigo?'OK':'SEM_CODIGO',ml='',m2='';
+      if(unid==='M2'){
+        if(source==='KG'){const v=kgToM2(e,saldo,c);if(v!=null){m2=v;saldoImport=v;}else{status='CONVERSAO_PENDENTE';saldoImport='';}}
+        else if(['METROS','MTL','M'].includes(source)){const w=FNUM(e?.largura||e?.medida);if(w>0){m2=saldo*w/1000;saldoImport=m2;}else{status='CONVERSAO_PENDENTE';saldoImport='';}}
+        else if(['M2','M²'].includes(source)){m2=saldo;saldoImport=saldo;}
+        else {status='CONVERSAO_PENDENTE';saldoImport='';}
+        if(m2!=='' ){const w=FNUM(e?.largura||e?.medida||c?.largura);if(w>0)ml=m2*1000/w;}
+      }else if(unid==='UN'){saldoImport=saldo;}
+      const materialNome=String(e.material||e.nome||e.category||'').trim();
+      const acabamentoNome=String(e.tipoAdesivo||e.tipo||'').trim();
+      const modeloNome=String(e.modelo||'').trim();
+      const larguraNome=String(e.largura??e.medida??'').trim();
+      const identificacaoMaterial=[
+        materialNome?`Material: ${materialNome}`:'',
+        acabamentoNome?`Acabamento: ${acabamentoNome}`:'',
+        modeloNome?`Modelo: ${modeloNome}`:'',
+        larguraNome?`Largura: ${larguraNome} mm`:''
+      ].filter(Boolean).join(' | ');
+      return {codigo,unid,cat:e.category||'',tipo:e.tipo||'',modelo:e.modelo||'',largura:e.largura||e.medida||'',micra:e.micra||'',identificacaoMaterial,metroLinear:ml,metroQuadrado:m2,saldo:saldoImport,status};
+    });
+  }
+  window.__MABFLEX_V86_MATCHES=finalMatches;
+  window.__MABFLEX_V86_KG_TO_M2=kgToM2;
+  window.findMatches=finalMatches;
+  function uniqueMatch(matches){
+    const seen=new Map();
+    for(const m of matches||[]){
+      const c=m.c, key=[String(c.codigo||''),catalogUnit(c),String(c.descricao||'')].join('|');
+      seen.set(key,m);
+    }
+    return [...seen.values()];
+  }
+  window.isAutoMatch=(e,top,second)=>!!top&&(['FILME','TUBETES','ADESIVO'].includes(FTEXT(e?.category).toUpperCase())?uniqueMatch(finalMatches(e)).length===1:(!second||top.score-second.score>=4));
+  // Botões usam explicitamente as versões V85 para não depender de bindings antigos.
+  $('#exportImportCima').onclick=()=>window.exportImportStock('Estoque Cima');
+  $('#exportImportBaixo').onclick=()=>window.exportImportStock('Estoque Baixo');
+  $('#exportConfCima').onclick=()=>window.exportConferenceStock('Estoque Cima');
+  $('#exportConfBaixo').onclick=()=>window.exportConferenceStock('Estoque Baixo');
+  window.exportImportStock=function(localName){
+    const rows=exportRows(localName);if(!rows.length)return toast(`Não há dados para exportar no ${localName}.`);
+    const cols=['CODIGO_PRODUTO','UNID','CATEGORIA','TIPO','LARGURA','MICRA','IDENTIFICACAO_MATERIAL','METRO_LINEAR','METRO_QUADRADO','SALDO'];
+    const lines=[cols.map(csvText).join(';')];
+    for(const r of rows)lines.push([csvText(r.codigo),csvText(r.unid),csvText(r.cat),csvText(r.tipo),csvNumber(r.largura),csvNumber(r.micra),csvText(r.identificacaoMaterial),r.metroLinear===''?'':csvNumber2(r.metroLinear),r.metroQuadrado===''?'':csvNumber2(r.metroQuadrado),r.saldo===''?'':csvNumber2(r.saldo)].join(';'));
+    download(`MABFLEX_IQUATTRO_${localName==='Estoque Cima'?'CIMA':'BAIXO'}_${dateFile()}.csv`,'\ufeff'+lines.join('\r\n')+'\r\n','text/csv;charset=utf-8');
+    const p=rows.filter(r=>r.status==='CONVERSAO_PENDENTE').length;toast(`${localName}: ${rows.length} produtos exportados${p?` · ${p} conversão pendente`:''} ✓`);
+  };
+  window.exportConferenceStock=function(localName){
+    const rows=exportRows(localName);if(!rows.length)return toast(`Não há dados para conferir no ${localName}.`);
+    const head=['CODIGO_PRODUTO','UNID','CATEGORIA','TIPO','MODELO','LARGURA','MICRA','IDENTIFICACAO_MATERIAL','METRO_LINEAR','METRO_QUADRADO','SALDO','STATUS'];
+    const th=head.map(htmlEsc).join('');
+    const body=rows.map(r=>{const style=r.status!=='OK'?' style="background:#FFE7C2"':'';const vals=[r.codigo,r.unid,r.cat,r.tipo,r.modelo,r.largura,r.micra,r.identificacaoMaterial,r.metroLinear===''?'':csvNumber2(r.metroLinear),r.metroQuadrado===''?'':csvNumber2(r.metroQuadrado),r.saldo===''?'':csvNumber2(r.saldo),r.status];return `<tr${style}>${vals.map(v=>`<td>${htmlEsc(v)}</td>`).join('')}</tr>`}).join('');
+    const html=`<html><head><meta charset="utf-8"></head><body><h2>MABFLEX — CONFERÊNCIA ${htmlEsc(localName)}</h2><table border="1"><tr>${th}</tr>${body}</table></body></html>`;
+    download(`MABFLEX_CONFERENCIA_${localName==='Estoque Cima'?'CIMA':'BAIXO'}_${dateFile()}.xls`,html,'application/vnd.ms-excel;charset=utf-8');
+  };
+  async function restore(){
+    if(!cloudOnline||!cloudUser)return false;
+    state=normalizeState(state);let restored=0;
+    for(const g of identificationCandidates()){const ms=finalMatches(g.e);if(ms.length!==1)continue;const c=ms[0].c;try{await updateEntryIdentification(groupKey(g),{codigo:c.codigo,unidade:catalogUnit(c),descricao:c.descricao,confianca:'automatico_v85'});restored++;}catch(e){console.error('V85 identificação',e);}}
+    if(restored){renderIdentification();renderBalance();console.log('V85 identificações restauradas:',restored);}return restored>0;
+  }
+  let tries=0;const timer=setInterval(async()=>{tries++;if(await restore()||tries>=30)clearInterval(timer)},1500);
+  window.addEventListener('focus',()=>setTimeout(restore,300));
+  window.addEventListener('online',()=>setTimeout(restore,1000));
+})();
+
+</script>
+</body></html>
+<script>
+/* V90 — identificação final: opções próximas e adesivos usando Material/Acabamento. */
+(function(){
+  const T=v=>norm(v||'');
+  const N=v=>{const n=Number(String(v??'').replace(',','.'));return Number.isFinite(n)?n:0};
+  function adhesiveTokens(type){
+    const t=T(type);
+    const aliases={
+      'branco fosco':['fosco',['branco','bco']],
+      'branco brilho':['brilho',['branco','bco']],
+      'branco brilho acrilico':['brilho','acrilico',['branco','bco']],
+      'branco brilho borracha':['brilho','borracha',['branco','bco']],
+      'fosco borracha':['fosco','borracha'],
+      'fosco acrilico':['fosco','acrilico'],
+      'couche borracha':['couche','borracha'],
+      'couche acrilico':['couche','acrilico'],
+      'metalizado acrilico':['metal','acrilico'],
+      'metalizado borracha':['metal','borracha'],
+      'transparente acrilico':['transparente','acrilico'],
+      'transparente borracha':['transparente','borracha']
+    };
+    if(aliases[t]) return aliases[t];
+    const words=t.split(/\s+/).filter(x=>x.length>2);
+    return words;
+  }
+  function adhesiveDescMatches(type,desc){
+    const d=T(desc), a=adhesiveTokens(type);
+    if(Array.isArray(a)&&a.length===2&&Array.isArray(a[1])) return d.includes(a[0]) && a[1].some(x=>d.includes(x));
+    if(Array.isArray(a)) return a.every(x=>d.includes(x));
+    return false;
+  }
+  function adhesiveCandidatesFinal(e){
+    const raw=Array.isArray(window.MABFLEX_CATALOGO_IQUATTRO)?window.MABFLEX_CATALOGO_IQUATTRO:[];
+    const type=String(e?.tipoAdesivo||e?.tipo||'').trim(), model=T(e?.modelo||''), w=N(e?.largura||e?.medida);
+    if(!type && !model) return [];
+    const out=[];
+    for(const c of raw){
+      const d=T(c?.descricao||'');
+      if(catalogUnit(c)!=='M2'||d.includes('teste')) continue;
+      let score=0;
+      const cw=N(c?.largura||window.catalogWidthRobust(c));
+      if(w&&cw){const diff=Math.abs(cw-w);if(diff===0)score+=45;else if(diff<=2)score+=18;else if(diff>10)continue;}
+      if(model){if(d.includes(model))score+=45;else continue;}
+      if(type){
+        if(adhesiveDescMatches(type,c.descricao||''))score+=55;
+        else {
+          const words=T(type).split(/\s+/).filter(x=>x.length>2);
+          const hits=words.filter(x=>d.includes(x)).length;
+          if(!hits)continue;
+          score+=Math.min(30,hits*10);
+        }
+      }
+      out.push({c,score});
+    }
+    out.sort((a,b)=>b.score-a.score||String(a.c.codigo).localeCompare(String(b.c.codigo)));
+    return out.slice(0,8);
+  }
+  function filmCandidatesFinal(e){
+    const raw=Array.isArray(window.MABFLEX_CATALOGO_IQUATTRO)?window.MABFLEX_CATALOGO_IQUATTRO:[];
+    const fam=window.filmFamily(e),w=N(e?.largura||e?.medida),mic=N(e?.micra);if(!fam||!w)return [];
+    const out=[];
+    for(const c of raw){
+      if(catalogUnit(c)!=='M2'||T(c.descricao).includes('teste'))continue;
+      if(window.catalogFamily(c.descricao)!==fam)continue;
+      const cw=N(c?.largura||window.catalogWidthRobust(c));if(!cw)continue;
+      const wd=Math.abs(cw-w);if(wd>10)continue;let score=100-wd*3+(wd===0?35:wd<=2?15:0);
+      if(fam==='PEROLA'){const cg=window.rawPearlGrams(c);if(mic&&cg)score+=Math.max(0,45-Math.abs(cg-mic)*5)}
+      else {const cm=window.rawCatalogThickness(c);if(mic&&cm){const a=window.normalizeFilmMicra(mic,fam),b=window.normalizeFilmMicra(cm,fam),d=Math.abs(a-b);score+=Math.max(0,45-d*2);if(d<.01)score+=30}}
+      out.push({c,score});
+    }
+    out.sort((a,b)=>b.score-a.score||String(a.c.codigo).localeCompare(String(b.c.codigo)));return out.slice(0,8);
+  }
+  function candidates(e){
+    const cat=T(e?.category).toUpperCase();
+    const exact=cat==='FILME'||cat==='TUBETES'||cat==='ADESIVO' ? (window.__MABFLEX_V86_MATCHES?window.__MABFLEX_V86_MATCHES(e):[]) : [];
+    if(exact&&exact.length) return exact;
+    if(cat==='FILME') return filmCandidatesFinal(e);
+    if(cat==='ADESIVO') return adhesiveCandidatesFinal(e);
+    if(cat==='TUBETES') return (window.__MABFLEX_V86_MATCHES?window.__MABFLEX_V86_MATCHES(e):[]);
+    return [];
+  }
+  window.findMatches=candidates;
+  window.isAutoMatch=function(e,top,second){
+    if(!top)return false;
+    const cat=T(e?.category).toUpperCase();
+    if(cat==='FILME'||cat==='TUBETES'||cat==='ADESIVO'){
+      const exact=window.__MABFLEX_V86_MATCHES?window.__MABFLEX_V86_MATCHES(e):[];
+      return exact.length===1;
+    }
+    return !second||top.score-second.score>=4;
+  };
+  // Re-render after replacing the matcher so the visible candidates are updated.
+  if(typeof renderIdentification==='function') renderIdentification();
+})();
+</script>

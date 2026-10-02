@@ -1,0 +1,1 @@
+window.MABFLEX_FORMULAS={"PE":{"densidade":0.955},"BOPP_PEROLA":{"densidade":0.73,"espessuras":{"17":23.2877,"20":27.3973,"30.137":30.137,"35.6164":35.6164}},"BOPP_METAL":{"densidade":0.912},"BOPP_TRANSPARENTE_MATE":{"densidade":0.91},"BOPP_TRANSPARENTE":{"densidade":0.905},"PET_TRANSPARENTE":{"densidade":1.35}};
